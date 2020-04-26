@@ -621,7 +621,7 @@ footer {
         margin-bottom: 5px;
         width: 140px;
         height: 140px;
-        background-image: url("/static/img/face.jpg");
+        background-image: url("/assets/img/face.jpg");
         background-size: cover;
         display: block !important;
         border-radius: 100px;

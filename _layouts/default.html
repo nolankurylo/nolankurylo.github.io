@@ -4,21 +4,20 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-        <title>Your awesome title | Write an awesome description for your new site here. You can edit this line in
-            _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site
-            description.</title>
         <meta name="generator" content="Jekyll v4.0.0" />
         <meta property="og:title" content="Your awesome title" />
         <meta property="og:locale" content="en_US" />
         <meta name="description"
-            content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+            content="This a my personal website that outlines my projects and experiences as a Software Engineering Student, hosted on Github." />
         <meta property="og:description"
-            content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-        <link rel="canonical" href="http://localhost:4000/" />
+            content="This a my personal website that outlines my projects and experiences as a Software Engineering Student, hosted on Github." />
         <meta property="og:url" content="http://localhost:4000/" />
         <meta property="og:site_name" content="Your awesome title" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <title>Nolan</title>
+
+        <link rel="canonical" href="http://localhost:4000/" />
         <!--Bootstrap CSS from CDN-->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -30,15 +29,15 @@
         <!--Local style sheets-->
         
         <link rel="shortcut icon" type="image/jpg" href="/assets/img/favicon.png">
-        <!-- Font -->
+        <!-- Fonts -->
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Baskervville' rel='stylesheet'>
         
-        <!-- End Jekyll SEO tag -->
         <link rel="stylesheet" href="/assets/css/index.css">
         <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml"
-            title="Your awesome title" />
+            title="Nolan" /> 
+            <!-- Not sure what this is -->
     </head>
 
     <body>
@@ -59,18 +58,18 @@
                                     <div class="mobile-image"></div>
                                     <h4 style="font-family: 'Raleway'; color: #292929;">Nolan Kurylo</h4>
                                 </div>
-                                <li class="nav-item active">
-                                    <a class="nav-link on mobile-pages mobile-border-top" href="#"><i
+                                <li class="nav-item {% if page.active == 'index' %} active {% endif %}">
+                                    <a class="nav-link on mobile-pages mobile-border-top" href="/"><i
                                             class="fas fa-home mobile-visible mobile-icon"></i>HOME<span
                                             class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link on mobile-pages" href="/templates/projectdirectory.html"><i
+                                <li class="nav-item {% if page.active == 'projects' %} active {% endif %}">
+                                    <a class="nav-link on mobile-pages" href="/projects"><i
                                             class="fas fa-clipboard-list mobile-visible mobile-icon"
                                             style="margin-right: 13px;"></i>PROJECTS</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link on mobile-pages" href="/templates/scholarships.html"><i
+                                <li class="nav-item {% if page.active == 'index' %} active {% endif %}">
+                                    <a class="nav-link on mobile-pages" href="/blog"><i
                                             class="fas fa-blog mobile-visible mobile-icon"
                                             style="margin-right: 13px;"></i>BLOG</a>
                                 </li>
