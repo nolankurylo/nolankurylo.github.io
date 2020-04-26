@@ -1,0 +1,31 @@
+<nav class="navbar fixed-top navbar-expand-md navbar-dark scrolling-navbar background-dark">
+    <a class="navbar-brand" href="/">
+        <img src="/assets/img/nk.png" alt="NK">
+    </a>
+    <button class="navbar-toggler " type="button" data-toggle="collapse-side" data-target=".side-collapse"
+        data-target-2=".side-collapse-container">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse side-collapse in">
+        <ul class="navbar-nav">
+            <div class="mobile-visible" style="margin-left: auto; margin-right: auto;">
+                <div class="mobile-image"></div>
+                <h4 style="font-family: 'Raleway'; color: #292929;">Nolan Kurylo</h4>
+            </div>
+            <li class="nav-item {% if page.active == 'index' %} active {% endif %}">
+                <a class="nav-link on mobile-pages mobile-border-top" href="/"><i
+                        class="fas fa-home mobile-visible mobile-icon"></i>HOME<span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item {% if page.active == 'projects' %} active {% endif %}">
+                <a class="nav-link on mobile-pages" href="/projects"><i
+                        class="fas fa-clipboard-list mobile-visible mobile-icon"
+                        style="margin-right: 13px;"></i>PROJECTS</a>
+            </li>
+            <li class="nav-item {% if page.active == 'blog' %} active {% endif %}">
+                <a class="nav-link on mobile-pages" href="/blog"><i class="fas fa-blog mobile-visible mobile-icon"
+                        style="margin-right: 13px;"></i>BLOG</a>
+            </li>
+        </ul>
+    </div>
+</nav>

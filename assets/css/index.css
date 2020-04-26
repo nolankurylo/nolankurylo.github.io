@@ -42,27 +42,19 @@ nav {
     text-align: center;
 }
 
-.drop-divider {
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-    border-top: 1px solid rgba(0, 0, 0, .1);
-    margin-left: 10%;
-    margin-right: 10%
-}
-
 .navbar-toggler {
     border: none !important;
 }
 
 .mobile-icon {
-    margin-right: 12px;
+    /* margin-right: 12px;
     margin-left: 30%;
-    color: #292929;
+    color: #292929; */
 }
 
 .mobile-icon-dropdown {
-    margin-right: 10px;
-    color: grey;
+    /* margin-right: 10px;
+    color: grey; */
 }
 
 .mobile-active-dropdown {
@@ -194,28 +186,6 @@ p {
 /* Only visible for <= 768px (mobile) */
 .mobile-visible {
     display: none;
-}
-
-/* Card styling for home page projects */
-.project-card {
-    min-height: 300px;
-    transition: all .2s ease-in-out;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-.project-card-left {
-    margin-left: 40px;
-    margin-right: 20px;
-}
-
-.project-card-right {
-    margin-left: 20px;
-    margin-right: 40px;
-}
-
-.project-card:hover {
-    transform: scale(1.03);
 }
 
 /* Sticky slide - not in use currently */
@@ -525,15 +495,6 @@ footer {
         overflow-x: hidden;
     }
 
-    .project-card-left {
-        margin-left: 40px !important;
-        margin-right: 40px !important;
-    }
-
-    .project-card-right {
-        margin-left: 40px;
-        margin-right: 40px;
-    }
 
     .parrallax {
         background-attachment: unset;
@@ -582,12 +543,10 @@ footer {
         width: 100%;
         position: relative;
         left: 0;
-        transition: left .5s;
+        transition: left 0.1s;
+        -webkit-transition: left 0.1s;
     }
 
-    .side-collapse-container.out {
-        left: 200px;
-    }
 
     .side-collapse {
         top: 65px;
@@ -596,9 +555,9 @@ footer {
         width: 70%;
         position: fixed;
         overflow: hidden;
-        transition: width .4s;
-        background-color: rgb(243, 242, 241);
-        border-right: 7px solid #E1A87A;
+        transition: width .3s;
+        background-color: #292929;
+        border-top: 3px solid #E1A87A;
         height: 100%;
         white-space: nowrap;
 
@@ -610,12 +569,6 @@ footer {
         border-top: none
     }
 
-    /* .mobile-image{
-        background-image: url("/static/img/3sisters.jpg");
-        background-size: cover;
-        visibility: visible !important;
-        height: 30vh; 
-    } */
     .mobile-image {
         margin-top: 10px;
         margin-bottom: 5px;
@@ -625,7 +578,6 @@ footer {
         background-size: cover;
         display: block !important;
         border-radius: 100px;
-        border: 1px solid #E1A87A;
         -webkit-border-radius: 100px;
         -moz-border-radius: 100px;
     }
