@@ -12,11 +12,9 @@ $(document).ready(function () {
   sideslider.click(function (event) {
     $(sel).toggleClass('in');
     $(sel2).toggleClass('out');
-  });
-  $('.dropdown-item').on('mousedown', function () {
-    $(this).css('background-color', 'lightgrey');
-  });
-  $('.dropdown-item').on('mouseup', function () {
-    $(this).css('background-color', 'unset');
+    $('.navbar-toggler').toggleClass('collapsed')
+    $('.body').toggleClass('hidden')
+    $('footer').toggleClass('hidden')
+    $('html body').toggleClass('lock-scroll')
   });
 });

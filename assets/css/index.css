@@ -41,27 +41,51 @@ nav {
     padding: 0;
     text-align: center;
 }
-
-.navbar-toggler {
-    border: none !important;
+.icon-bar {
+    width: 25px;
+    height: 2px;
+    background-color: #B6B6B6;
+    display: block;
+    transition: all 0.2s;
+    margin-bottom: 5px
 }
+.navbar-toggler {
+    border: none;
+    background: transparent !important;
+}
+.navbar-toggler .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+ 
+.navbar-toggler .middle-bar {
+  opacity: 0;
+}
+ 
+.navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+ 
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+ 
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+ 
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
+}
+
+
+
 
 .mobile-icon {
-    /* margin-right: 12px;
+    margin-right: 12px;
     margin-left: 30%;
-    color: #292929; */
 }
-
-.mobile-icon-dropdown {
-    /* margin-right: 10px;
-    color: grey; */
-}
-
-.mobile-active-dropdown {
-    background-color: darkgrey;
-}
-
-
 
 /* ------------------------------------------------------ BODY ------------------------------------------------------ */
 .body {
@@ -324,6 +348,18 @@ p {
     background: #E1A87A;
 }
 
+.hidden{
+    position: absolute;
+    transition: all 0.3s ease !important;
+    -webkit-transition: all 0.3s ease  !important;
+    opacity: 0.8;
+    overflow: hidden !important;
+}
+
+.lock-scroll {
+    overflow: hidden;
+}
+
 
 /* ------------------------------------------------------ FOOTER ------------------------------------------------------ */
 /* Footer positioning and height */
@@ -552,12 +588,11 @@ footer {
         top: 65px;
         bottom: 0;
         left: 0;
-        width: 70%;
+        width: 75%;
         position: fixed;
         overflow: hidden;
         transition: width .3s;
         background-color: #292929;
-        border-top: 3px solid #E1A87A;
         height: 100%;
         white-space: nowrap;
 
@@ -569,45 +604,28 @@ footer {
         border-top: none
     }
 
+    .side-collapse.in .body {
+        width: 0;
+        border-right: none;
+        border-top: none
+    }
+
     .mobile-image {
-        margin-top: 10px;
-        margin-bottom: 5px;
-        width: 140px;
-        height: 140px;
-        background-image: url("/assets/img/face.jpg");
+        margin-bottom: 25px;
+        min-width: 100%;
+        height: 200px;
+        background-image: url("/assets/img/ocean.jpg");
         background-size: cover;
         display: block !important;
-        border-radius: 100px;
-        -webkit-border-radius: 100px;
-        -moz-border-radius: 100px;
     }
 
     .mobile-visible {
         display: unset !important;
     }
-
-    /* .mobile-title-center {
-        text-align: center;
-        width: 100%;
-        height: 70%;
-        overflow: auto;
-        margin: auto;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        color: white;
-        font-family: "Raleway";
-        font-size: 175%;
-    } */
-    .mobile-pages {
-        color: #292929 !important;
-        border-bottom: 1px solid lightgrey;
-    }
+    
 
     .active {
-        background-color: lightgrey;
+        color: #E1A87A !important;
     }
 
     .dropdown-menu {
@@ -626,10 +644,9 @@ footer {
 
     .nav-item {
         text-align: left !important;
+        font-size: 15pt;
+        margin-bottom: 20px
     }
 
-    .mobile-border-top {
-        border-top: 1px solid lightgrey;
-    }
 
 }
