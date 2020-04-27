@@ -236,7 +236,8 @@ p {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 5px;
+    
+    border: 1px solid rgb(218, 206, 196)
 }
 
 .inner-overlay {
@@ -570,14 +571,6 @@ footer {
 
 /* For screensize below 768px */
 @media only screen and (max-width: 768px) {
-    .title-text {
-        font-size: 1.5em !important;
-    }
-
-    .title-text-white {
-        font-size: 1.5em !important;
-    }
-
     .text-row {
         padding-top: 100px;
         margin-right: 10%;
