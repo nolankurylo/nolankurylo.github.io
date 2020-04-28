@@ -17,4 +17,9 @@ $(document).ready(function () {
     $('footer').toggleClass('hidden')
     $('html body').toggleClass('lock-scroll')
   });
+
+  $('.section-two').hover(function () {
+    $('.section-container').toggleClass('two-is-active');
+  });
 });
+
