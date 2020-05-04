@@ -18,8 +18,18 @@ $(document).ready(function () {
     $('html body').toggleClass('lock-scroll')
   });
 
-  $('.section-two').hover(function () {
-    $('.section-container').toggleClass('two-is-active');
+  $('.interest-hockey').hover(function () {
+    $('.interest-hockey.section-container').toggleClass('two-is-active');
   });
+  $('.interest-health').hover(function () {
+    $('.interest-health.section-container').toggleClass('two-is-active');
+  });
+  $('.interest-projects').hover(function () {
+    $('.interest-projects.section-container').toggleClass('two-is-active');
+  });
+  
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    $('.section-container').addClass('two-is-active');
+  }
 });
 

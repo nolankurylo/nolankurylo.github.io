@@ -177,14 +177,9 @@ p {
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(48, 48, 48, 0.5)),
         url("../img/3-sisters.jpg");
     height: 100vh;
+    position: relative;
+    
 
-}
-
-
-/* not in use yet */
-.slanted {
-    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
-    -webkit-clip-path: polygon(0 25px, 100% 0, 100% 100%, 0 100%);
 }
 
 /* Banner image parallax scrolling effect */
@@ -193,6 +188,9 @@ p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
+    
+    
 }
 
 .text-row {
