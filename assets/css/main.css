@@ -1,4 +1,4 @@
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
   * {
     margin: 0;
     padding: 0;
@@ -99,7 +99,7 @@
   .crumb a.active,
   .crumb a:hover {
     background: #E1A87A;
-    color: white;
+    color: white !important;
   }
   .crumb a.active:after,
   .crumb a:hover:after {
@@ -188,6 +188,11 @@
   }
   .section-container {
     margin-bottom: 50px;
+  }
+  .content-text {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 /*# sourceMappingURL=main.css.map */

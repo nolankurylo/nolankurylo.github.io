@@ -1,4 +1,4 @@
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
     $base: 50px;
 
     * {
@@ -97,7 +97,7 @@
     .crumb a.active,
     .crumb a:hover {
         background: #E1A87A;
-        color: white;
+        color: white !important;
     }
 
     .crumb a.active:after,
@@ -214,9 +214,7 @@
     }
     .content-text{
         width: 600px;
-        text-align: left;
-        
-        
+        text-align: left; 
     }
 }
 
@@ -236,6 +234,11 @@
     }
     .section-container{
         margin-bottom: 50px;
+    }
+    .content-text {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
 }

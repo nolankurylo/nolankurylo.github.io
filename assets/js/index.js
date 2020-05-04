@@ -1,5 +1,5 @@
 $(".intro-start").click(function() {
-  $("html, body").animate({ scrollTop: $("#card-1").offset().top  }, 1000);
+  $("html, body").animate({ scrollTop: $("#about-section").offset().top  }, 1000);
 });
 
 
@@ -18,15 +18,18 @@ $(document).ready(function () {
     $('html body').toggleClass('lock-scroll')
   });
 
-  $('.interest-hockey').hover(function () {
-    $('.interest-hockey.section-container').toggleClass('two-is-active');
-  });
-  $('.interest-health').hover(function () {
-    $('.interest-health.section-container').toggleClass('two-is-active');
-  });
-  $('.interest-projects').hover(function () {
-    $('.interest-projects.section-container').toggleClass('two-is-active');
-  });
+  if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))){
+    $('.interest-hockey').hover(function () {
+      $('.interest-hockey.section-container').toggleClass('two-is-active');
+    });
+    $('.interest-health').hover(function () {
+      $('.interest-health.section-container').toggleClass('two-is-active');
+    });
+    $('.interest-projects').hover(function () {
+      $('.interest-projects.section-container').toggleClass('two-is-active');
+    });
+  }
+  
   
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     $('.section-container').addClass('two-is-active');

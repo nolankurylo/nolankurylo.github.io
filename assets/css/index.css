@@ -32,7 +32,8 @@ nav {
 }
 
 .navbar {
-    height: 65px !important
+    height: 65px !important;
+    border-bottom: 3px solid #E1A87A;
 }
 
 .navbar-nav {
@@ -98,7 +99,9 @@ p {
     font-family: 'ABeeZee';
     font-style: normal;
 }
-
+.hr-gold {
+    border-top: 2px solid #E1A87A !important;
+}
 .h1-title {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
@@ -152,8 +155,7 @@ p {
 
 /* Chevron styling */
 .chevron {
-    margin-top: 40px;
-    padding-bottom: 30px;
+    
     display: block;
     font-size: 4rem;
     -webkit-animation: pulse 2s infinite;
@@ -188,8 +190,6 @@ p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
-    
     
 }
 
@@ -451,59 +451,8 @@ footer {
 
 
 /* ------------------------------------------------------ BREAKPOINTS ------------------------------------------------------ */
-@media only screen and (min-width: 768px) {
-    nav:hover .dropdown-menu {
-        display: block;
-    }
-
-    .dropdown-menu nav:hover {
-        display: unset;
-    }
-
-
-}
-
-
-/* For screensize above 600px */
-@media only screen and (min-width: 600px) {
-
-    /* When navbar text is hovered */
-    .on {
-        text-decoration: none;
-        position: relative;
-        font-size: large;
-        margin-right: 30px;
-        
-    }
-
-    .on:after {
-        background: none repeat scroll 0 0 transparent;
-        bottom: 6px;
-        content: "";
-        display: block;
-        height: 2px;
-        left: 50%;
-        position: absolute;
-        background: white;
-        transition: width 0.3s ease 0s, left 0.3s ease 0s;
-        width: 0;
-        
-    }
-    .on:hover {
-        color: white!important
-    }
-
-    .on:hover:after {
-        width: 100%;
-        left: 0;
-        
-    }
-
-    .b-crumbs {
-        border-radius: none !important;
-
-    }
-
+/* For screensize above 992px */
+@media only screen and (min-width: 992px) {
     .image-overlay-container:hover .text-overlay {
         transition: .4s;
         opacity: 1;
@@ -524,10 +473,61 @@ footer {
         transform: translateY(20px);
     }
 
+    nav:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu nav:hover {
+        display: unset;
+    }
+    /* When navbar text is hovered */
+    .on {
+        text-decoration: none;
+        position: relative;
+        font-size: large;
+        margin-right: 30px;
+
+    }
+
+    .on:after {
+        background: none repeat scroll 0 0 transparent;
+        bottom: 6px;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: white;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+
+    }
+
+    .on:hover {
+        color: white !important
+    }
+
+    .on:hover:after {
+        width: 100%;
+        left: 0;
+
+    }
+
+
 }
 
-/* For screensize below 650px */
-@media only screen and (max-width: 650px) {
+
+/* For screensize above 768px */
+@media only screen and (min-width: 768px) {
+    .b-crumbs {
+        border-radius: none !important;
+
+    }
+
+}
+
+/* For screensize below 768px */
+@media only screen and (max-width: 768px) {
     .svg-container {
         height: 75% !important;
         width: 75% !important;
@@ -567,8 +567,8 @@ footer {
     }
 }
 
-/* For screensize below 768px */
-@media only screen and (max-width: 768px) {
+/* For screensize below 992px */
+@media only screen and (max-width: 992px) {
     .text-row {
         padding-top: 100px;
         margin-right: 10%;
@@ -596,6 +596,7 @@ footer {
         background-color: #292929;
         height: 100%;
         white-space: nowrap;
+        border-right: 3px solid #E1A87A;
 
     }
 
@@ -647,6 +648,9 @@ footer {
         text-align: left !important;
         font-size: 15pt;
         margin-bottom: 20px
+    }
+    .intro{
+        margin-top: -20%;
     }
 
 
