@@ -30,10 +30,9 @@
         text-align: center;
         top: 50%;
         width: 100%;
-        // max-width: 1200px;
         height: $base * 1.5;
         transform: translateY(-50%);
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 1),
+        box-shadow: 0 0px 1px rgba(0, 0, 0, 1),
             0 4px 14px rgba(0, 0, 0, 0.7);
         z-index: 1;
         background-color: #ddd;
@@ -96,25 +95,25 @@
 
     .crumb a.active,
     .crumb a:hover {
-        background: #E1A87A;
+        background: #AFAFAF;
         color: white !important;
     }
 
     .crumb a.active:after,
     .crumb a:hover:after {
-        background: #E1A87A;
+        background: #AFAFAF;
         color: white;
     }
 
 
     .crumb a.active:hover {
-        background: rgb(223, 185, 153);
+        background: rgb(145, 145, 145);
         color: white;
     }
 
     .crumb a.active:hover:after,
     .crumb a:hover:after {
-        background: rgb(223, 185, 153);
+        background: rgb(145, 145, 145);
         color: white;
     }
 

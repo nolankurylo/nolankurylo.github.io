@@ -33,7 +33,7 @@ nav {
 
 .navbar {
     height: 65px !important;
-    border-bottom: 3px solid #E1A87A;
+    border-bottom: 5px solid #AFAFAF;
 }
 
 .navbar-nav {
@@ -100,7 +100,7 @@ p {
     font-style: normal;
 }
 .hr-gold {
-    border-top: 2px solid #E1A87A !important;
+    border-top: 2px solid #AFAFAF !important;
 }
 .h1-title {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -133,6 +133,9 @@ p {
 
 .background-dark {
     background-color: #292929;
+}
+.background-grey {
+    background-color: #F2F2F2;
 }
 
 .background-white {
@@ -176,7 +179,7 @@ p {
 /* banner image */
 #banner-image {
     background-image:
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(48, 48, 48, 0.5)),
+        linear-gradient(rgb(0, 0, 0), rgba(255, 255, 255, 0.185)),
         url("../img/3-sisters.jpg");
     height: 100vh;
     position: relative;
@@ -281,7 +284,7 @@ p {
 .button-square {
     text-align: center;
     background-color: transparent;
-    border: 2px solid #E1A87A;
+    border: 2px solid #AFAFAF;
     color: white;
     padding: 15px 15px;
     width: 80%;
@@ -298,7 +301,7 @@ p {
 .button-square-2 {
     text-align: center !important;
     background-color: transparent;
-    border: 2px solid #E1A87A;
+    border: 2px solid #AFAFAF;
     color: white;
     padding: 15px 15px;
     margin-left: auto;
@@ -317,7 +320,7 @@ p {
 }
 
 .button-square:hover {
-    background: #E1A87A;
+    background: #AFAFAF;
 }
 
 .button-square-2:hover a {
@@ -329,7 +332,7 @@ p {
 }
 
 .button-square-2:hover {
-    background: #E1A87A;
+    background: #AFAFAF;
 }
 
 .hidden{
@@ -562,7 +565,7 @@ footer {
     }
 
     .button-square {
-        background: #E1A87A;
+        background: #AFAFAF;
         margin-top: 20px;
     }
 }
@@ -596,7 +599,7 @@ footer {
         background-color: #292929;
         height: 100%;
         white-space: nowrap;
-        border-right: 3px solid #E1A87A;
+        border-right: 5px solid #AFAFAF;
 
     }
 
@@ -627,7 +630,7 @@ footer {
     
 
     .active {
-        color: #E1A87A !important;
+        color: #AFAFAF !important;
     }
 
     .dropdown-menu {

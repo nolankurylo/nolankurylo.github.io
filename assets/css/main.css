@@ -35,8 +35,8 @@
     height: 75px;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
-    -webkit-box-shadow: 0 1px 1px black, 0 4px 14px rgba(0, 0, 0, 0.7);
-            box-shadow: 0 1px 1px black, 0 4px 14px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0 0px 1px black, 0 4px 14px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0px 1px black, 0 4px 14px rgba(0, 0, 0, 0.7);
     z-index: 1;
     background-color: #ddd;
     font-size: 14px;
@@ -98,21 +98,21 @@
   }
   .crumb a.active,
   .crumb a:hover {
-    background: #E1A87A;
+    background: #AFAFAF;
     color: white !important;
   }
   .crumb a.active:after,
   .crumb a:hover:after {
-    background: #E1A87A;
+    background: #AFAFAF;
     color: white;
   }
   .crumb a.active:hover {
-    background: #dfb999;
+    background: #919191;
     color: white;
   }
   .crumb a.active:hover:after,
   .crumb a:hover:after {
-    background: #dfb999;
+    background: #919191;
     color: white;
   }
   .two-is-active .section-one {
