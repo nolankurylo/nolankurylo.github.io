@@ -14,7 +14,7 @@ permalink: /projects/arduino-clock/
         </a>
         <a href="/projects" class="active">
             <span class="breadcrumb__inner">
-                <span class="breadcrumb__title">Project Directory</span>
+                <span class="breadcrumb__title">Projects</span>
                 <span class="breadcrumb__desc"></span>
             </span>
         </a>
@@ -23,5 +23,52 @@ permalink: /projects/arduino-clock/
                 <span class="breadcrumb__title">Arduino Clock</span>
             </span>
         </a>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 45px;">
+    
+    <div class="row align-items-center" style="margin-bottom: 40px; ">
+        <div class="col-lg-7 col-md-12 text-left">
+            <div style="margin-bottom: 50px">
+                <h1 class="h1-title">Arduino Uno LCD Clock <a type="button" target="_blank" href="https://github.com/nolankurylo/LCD-Clock" class="btn btn-github-link third">Github</a></h1>
+            </div>
+          
+            <p>
+                As an extracurricular project, I decided to program a digital clock using an Arduino Uno. The idea of this project was
+                to use the Arduino's processor and clock to demonstrate a precise timer interrupt that would increment the 'seconds' count
+                exactly once a second.
+            </p>
+
+            <p>
+                Using the C/C++ Arduino language, I setup commuication with a Liquid Crystal Display (LCD Screen) via the I2C Protocol. The 
+                LCD was used to display the current, time and date.
+            </p>
+            <br>
+        </div>
+        <div class="col-lg-5 col-md-12 text-center">
+            <img src="/assets/img/lcdclock.jpg" alt="The Desk" height="auto" width="100%" style="border-radius: 15px">
+        </div>
+    </div>
+
+    <div class="row align-items-center flex-column-reverse flex-lg-row" style="margin-bottom: 40px; margin-top: 20px;">
+        <div class="col-lg-5 col-md-12 text-center" >
+            <img src="/assets/img/terminal.jpg" alt="The Desk" height="auto" width="100%" >
+        </div>
+        <div class="col-lg-7 col-md-12 text-left">
+            <p>
+                This project taught a lot about how to use interrupt timers. Although I have seen them in school, this was an 
+                interesting way to implement them in my own project. More specifically, I learned why I would want to use them
+                as compared to the built-in <i>delay()</i> functions: precision.
+            </p>
+            <p>
+                While this project displays the current dat and time on the LCD, I also designed a terminal-based UI for the user to configure the 
+                correct time and date, as seen on the left.
+                This gave me more experience in parsing user inputs and converting strings into the correct type necessary to be printed onto the 
+                LCD. Furthermore, there were many edge cases that had to be handled given the various user inputs the program could accept.
+            </p>
+            <br>
+        </div>
+        
     </div>
 </div>

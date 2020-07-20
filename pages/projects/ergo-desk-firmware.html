@@ -14,7 +14,7 @@ permalink: /projects/ergo-desk-firmware/
         </a>
         <a href="/projects" class="active">
             <span class="breadcrumb__inner">
-                <span class="breadcrumb__title">Project Directory</span>
+                <span class="breadcrumb__title">Projects</span>
                 <span class="breadcrumb__desc"></span>
             </span>
         </a>
@@ -23,5 +23,58 @@ permalink: /projects/ergo-desk-firmware/
                 <span class="breadcrumb__title">Ergonomyx Desk Firmware</span>
             </span>
         </a>
+    </div>
+</div>
+
+
+<div class="container" style="margin-top: 45px;">
+    
+    <div class="row align-items-center" style="margin-bottom: 40px;;">
+        <div class="col-lg-7 col-md-12 text-left">
+            <div style="margin-bottom: 50px">
+                <h1 class="h1-title">Sit Stand Desk <a type="button" target="_blank" href="https://store.ergonomyx.com/products-desk" class="btn btn-github-link third">Product</a></h1>
+            </div>
+            <p>My first project involved creating a program that communicated with the newly designd PCBs to operate the company's Sit Stand Desk. Since the PCBs
+                were prototypes, there were bugs with the hardware that I learned how to debug and fix. Through hands-on experience, I learned
+                how to read a circuit board schematic, and use it to test various circuits that made up the board. I tested these circuits using a multimeter 
+                to compare voltage readings and check continuity between components. When I was able to isolate and determine the problem of the circuit, I 
+                learned how to properly solder/de-solder the PCB components. 
+            </p>
+            <p>
+                Once we had a working PCB prototype, I began to write the embedded C++ program on the ESP32 that operate the Desk and serve to handle Bluetooth functionality
+                from the mobile applications. The C++ program uses UART to write serial data to the desk's motors. The serial data was obtained through an 
+                oscilloscope we used for tesing the three states of the desk's motors: Up, Down, or Stopped. Along with UART I also made use of the I2C protocol where
+                I incorporated an accelerometer on the PCB to detect various types of impact.
+            </p>
+        </div>
+        <div class="col-lg-5 col-md-12 text-center">
+            <img src="/assets/img/desk.jpg" alt="The Desk" height="auto" width="100%">
+        </div>
+    </div>
+    <div class="row align-items-center flex-column-reverse flex-lg-row" style="margin-bottom: 40px; margin-top: 20px;">
+        <div class="col-lg-5 col-md-12 text-center" >
+            <img src="/assets/img/pcb.jpeg" alt="The Desk" height="auto" width="100%" style="border-radius: 20px;">
+        </div>
+        <div class="col-lg-7 col-md-12 text-left">
+            <p>
+                The Desk had many peripherals a part of its PCB that I learned how to control via software. These peripherals included a vibrating motor for haptic feedback,
+                accelerometer for impact detection, and capctive touch sensors for movement operation. 
+            </p>
+            <p>  
+                In combination with programming capactive touch inputs, the accelerometer was used for intuitive 
+                up/down movements by the user. It was also used to to detect any abnormal impact when the desk was in movement alerting the desk to stop moving
+                automatically. Furthermore, I had to work the program such that it incorporated a Bluetooth Server so the user could control the desk over
+                the mobile applications. On top of Bluetooth desk controls, I also used the ESP32's EEPROM memory to store data in case the device got unplugged. The use of
+                EEPROM led to one of the coolest features I designed which was using a WiFi server to include Over-The-Air (OTA) firmware updates.
+            </p>
+            <p>
+                With this program being as large as it was, rigorous testing went into the product before it was released. I am very fortunate to have had to opportunity to
+                take on a project of such magnitude, espeically with this being Ergonomyx's flagship product. I learned an immense amount of embedded engineering with this project.
+                This not only included working at the electrical level with the PCBs or on the embedded code, but also how to work in a memory-contrained environment and how to
+                write the most efficient C++ code possible.
+            </p>
+            <br>
+        </div>
+        
     </div>
 </div>

@@ -1,0 +1,75 @@
+---
+layout: default
+active: projects
+permalink: /projects/collatz/
+---
+<link rel="stylesheet" href="/assets/css/main.css">
+<div class="crumb-container" style="max-width: 100%">
+    <div class="crumb">
+        <a href="/" class="active">
+            <span class="breadcrumb__inner">
+                <span class="breadcrumb__title">Home</span>
+                <span class="breadcrumb__desc"></span>
+            </span>
+        </a>
+        <a href="/projects" class="active">
+            <span class="breadcrumb__inner">
+                <span class="breadcrumb__title">Projects</span>
+                <span class="breadcrumb__desc"></span>
+            </span>
+        </a>
+        <a href="#">
+            <span class="breadcrumb__inner">
+                <span class="breadcrumb__title">Collatz Calculator</span>
+            </span>
+        </a>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 45px;">
+    <div style="margin-bottom: 50px">
+                <h1 class="h1-title">Atmega 2560 Collatz Calculator</h1>
+            </div>
+    <div class="row align-items-center" style="margin-bottom: 40px; ">
+        <div class="col-lg-7 col-md-12 text-left">
+            
+          
+            <p>
+                As a project for CSC 230: Introduction to Computer Architecture, I was tasked with designing a program that would run 
+                the <a target="_blank" href="https://en.wikipedia.org/wiki/Collatz_conjecture">Collatz Sequence</a>. Furthermore, the program
+                was to be controllable by a user via the keypad shield. This was so that the user could update the value to run the sequence on
+                as well as to control the speed that the sequence processed at.
+            </p>
+
+            <p>
+                The program was assigned to be written in AVR Asssembler language. This allowed me to understand how to program registers and utilize the stack
+                and its push/pop operations. I also learned how to incorporate timer driven interrupts and how to set the appropriate registers, as well as
+                perform analog to digital conversion (ADC) on the values received from the 5 keypad buttons. 
+            </p>
+            <p>
+                Writing in Assembly is drastically different than any other programming language but it helped better understand
+                what goes on behind the scenes in low-level programming.
+            </p>
+            <p>
+                This same program was written in C as the final project for this course. It's crazy how 1500 lines of Assembly code turned into about 200 lines of
+                C code.
+            </p>
+            <br>
+            <p class="text-muted">
+                <i>n</i> - input value to begin the sequence at <br>
+                <i>SPD</i> - current speed of sequence <br>
+                <i>cnt</i> - number of terms in sequence thus far <br>
+                <i>v</i> - current value of sequence <br><br>
+                Top row is editable by the cursor (n and SPD)<br>
+                Bottom row (cnt and v) are calculated by the sequence
+            </p>
+        </div>
+        <div class="col-lg-5 col-md-12 text-center">
+            <video height="auto" width="70%" preload controls>
+                <source src="/assets/img/atmega2560.mp4" type="video/mp4">
+              </video>
+        </div>
+    </div>
+
+    
+</div>

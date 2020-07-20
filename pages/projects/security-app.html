@@ -15,7 +15,7 @@ permalink: /projects/security-app/
         </a>
         <a href="/projects" class="active">
             <span class="breadcrumb__inner">
-                <span class="breadcrumb__title">Project Directory</span>
+                <span class="breadcrumb__title">Projects</span>
                 <span class="breadcrumb__desc"></span>
             </span>
         </a>
@@ -27,24 +27,27 @@ permalink: /projects/security-app/
     </div>
 </div>
 
-<div class="container">
-    <div class="row " style="margin-bottom: 100px; margin-top: 150px;">
-        <div class="col-md-5 col-sm-12">
-            <img src="/assets/img/pi.jpg" alt="Raspberry Pi 3" style="border-radius: 12px;" height="260" width="320">
-        </div>
-        <div class="col-md-7 col-sm-12 text-left">
-            <h1 class="h1-title">Security Camera Application</h1>
-            <br>
+<div class="container" style="margin-top: 45px;">
+    <div style="margin-bottom: 50px">
+        <h1 class="h1-title">Security Camera Application <a type="button" target="_blank" href="https://github.com/nolankurylo/raspi-security-camera" class="btn btn-github-link third">Github</a></h1>
+    </div>
+    <div class="row align-items-center" style="margin-bottom: 40px; margin-top: 45px;">
+        <div class="col-lg-7 col-md-12 text-left">
             <p> During the summer of 2019, I was completing the second half of my 8-month (first) co-op at Ergonomyx
                 Technologies Canada. While I enjoyed the web development aspect of my position, I was eager to learn
                 about embedded systems and how the software of an application interacted at the hardware level. </p>
             <p> I decided to start working on a project that would introduce me to embedded systems combined with some
                 of my web development knowledge. </p>
         </div>
+        <div class="col-lg-5 col-md-12 text-center">
+            <img src="/assets/img/pi.jpg" alt="Raspberry Pi 3" height="auto" width="70%" style="border-radius: 15px;">
+        </div>
     </div>
-    <div class="row align-items-center">
-        <div class="col-md-7 col-sm-12 text-left">
-            <br>
+    <div class="row align-items-center flex-column-reverse flex-lg-row" style="margin-bottom: 40px; margin-top: 20px;">
+        <div class="col-lg-5 col-md-12 text-center" >
+            <img src="/assets/img/bb.jpg" alt="PIR Sensor" height="auto" width="70%" style="border-radius: 20px;">
+        </div>
+        <div class="col-lg-7 col-md-12 text-left">
             <p> The project consists of a Raspberry Pi 3, Camera, and Passive Infrared (PIR) Sensor. Connected by a
                 breadboard, the PIR sensor is activated when motion is detected within the vicinity. Upon the sensor
                 being activated, the camera that is directly connected to the Pi begins recording. </p>
@@ -52,22 +55,18 @@ permalink: /projects/security-app/
                 Upon the request to the server being received successfully, the Pi's program awaits the next detection
                 of movement. </p>
         </div>
-        <div class="col-md-5 col-sm-12 text-center">
-            <img src="/assets/img/bb.jpg" alt="PIR Sensor" style="border-radius: 15px;" height="340" width="360">
-        </div>
+        
     </div>
-    <div class="row align-items-center" style="margin-bottom: 100px; margin-top: 100px;">
-        <div class="col-md-5 col-sm-12">
-            <div class="row">
-                <div class="col">
-                    <img src="/assets/img/website.jpg" alt="Mobile App " height="300" width="400">
-                </div>
-            </div>
+    <div class="row align-items-center" style="margin-bottom: 40px; margin-top: 45px;">
+        <div class="col-lg-7 col-md-12 text-left">
+            <p> On the web server side, when the request from the Pi is received, the
+                image is converted into JPG format and saved locally. Also, the image's information (filename, timestamp,
+                etc.) is saved in a MongoDB database. Once the information has been properly stored, a text message is sent
+                to my phone via Twilio to alert me of the detection. The web server also hosts a local website that displays
+                each video clip with the ability to manage each video and its information, as seen to the left. </p>
         </div>
-        <div class="col-md-7 col-sm-12 text-left"> On the web server side, when the request from the Pi is received, the
-            image is converted into JPG format and saved locally. Also, the image's information (filename, timestamp,
-            etc.) is saved in a MongoDB database. Once the information has been properly stored, a text message is sent
-            to my phone via Twilio to alert me of the detection. The web server also hosts a local website that displays
-            each video clip with the ability to manage each video and its information, as seen to the left. </div>
+        <div class="col-lg-5 col-md-12 text-center">
+            <img src="/assets/img/website.jpg" alt="Mobile App " height="auto" width="90%">
+        </div>
     </div>
 </div>

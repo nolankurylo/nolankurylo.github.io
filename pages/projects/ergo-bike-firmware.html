@@ -1,0 +1,58 @@
+---
+layout: default
+active: projects
+permalink: /projects/ergo-bike-firmware/
+---
+<link rel="stylesheet" href="/assets/css/main.css">
+<div class="crumb-container" style="max-width: 100%">
+    <div class="crumb">
+        <a href="/" class="active">
+            <span class="breadcrumb__inner">
+                <span class="breadcrumb__title">Home</span>
+                <span class="breadcrumb__desc"></span>
+            </span>
+        </a>
+        <a href="/projects" class="active">
+            <span class="breadcrumb__inner">
+                <span class="breadcrumb__title">Projects</span>
+                <span class="breadcrumb__desc"></span>
+            </span>
+        </a>
+        <a href="#">
+            <span class="breadcrumb__inner">
+                <span class="breadcrumb__title">Ergonomyx Bike Firmware</span>
+            </span>
+        </a>
+    </div>
+</div>
+
+
+<div class="container">
+    
+    <div class="row align-items-center" style="margin-bottom: 40px; margin-top: 45px;">
+        <div class="col-lg-7 col-md-12 text-left">
+            <div style="margin-bottom: 50px">
+                <h1 class="h1-title">Under Desk Bike <a type="button" target="_blank" href="https://store.ergonomyx.com/products-bike" class="btn btn-github-link third">Product</a></h1>
+            </div>
+            
+            <p>During my third co-op work term, my second main project was to write an embedded program for one the company's main products,
+                the Under Desk Bike. With there being various problems with the inital PCB prototype, I had the opportunity to gain experience
+                debugging and adjusting the circuitry of the PCB. This involved testing various circuits on breakout boards that the electrical 
+                engineering department had helped design.
+            </p>
+
+            <p>
+                As for the software itself, I implemented C++ code to communicate with the peripherals on the PCB board. A reed switch was used to
+                calculate the bike's RPMs as well as a battery boost regulator circuit that I toggled via the code when necessary. A Bluetooth beacon
+                was implemented to send the various sensor data to the mobile applications. 
+            </p>
+            <p>
+                This project allowed me to better understand how the hardware communicates with the software in an embedded application. To me, I really
+                enjoy seeing low-level programming output a physical result via hardware.
+            </p>
+        </div>
+        <div class="col-lg-5 col-md-12 text-center">
+            <img src="/assets/img/bike2.jpg" alt="The Desk" height="auto" width="100%">
+        </div>
+    </div>
+</div>
