@@ -28,11 +28,20 @@ $(document).ready(function () {
     $('.interest-projects').hover(function () {
       $('.interest-projects.section-container').toggleClass('two-is-active');
     });
+    $('#nolan-svg').removeAttr('transform')
+    $('#nolan-svg').attr('transform', 'translate(0,-150)')
   }
   
   
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     $('.section-container').addClass('two-is-active');
+    $('#nolan-svg').removeAttr('transform')
+    $('#nolan-svg').attr('transform', 'translate(0,100)')
+  }
+  if (/iPad/i.test(navigator.userAgent)) {
+  
+    $('#nolan-svg').removeAttr('transform')
+    $('#nolan-svg').attr('transform', 'translate(0,-100)')
   }
 });
 
