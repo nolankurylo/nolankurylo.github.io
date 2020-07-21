@@ -3,7 +3,7 @@
               "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1136">
-                        <path id="Selection" fill="none" stroke="white" stroke-width="4" d="M 59.00,426.00
+                        <path transform="translate(0,-100)"  style="position:absolute" id="Selection" fill="none" stroke="white" stroke-width="4" d="M 59.00,426.00
                                C 59.00,426.00 60.00,403.00 60.00,403.00
                                  60.00,403.00 60.00,362.00 60.00,362.00
                                  60.00,362.00 71.00,362.00 71.00,362.00
