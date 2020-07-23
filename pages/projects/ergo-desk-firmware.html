@@ -34,17 +34,17 @@ permalink: /projects/ergo-desk-firmware/
             <div style="margin-bottom: 50px">
                 <h1 class="h1-title">Sit Stand Desk <a type="button" target="_blank" href="https://store.ergonomyx.com/products-desk" class="btn btn-github-link third">Product</a></h1>
             </div>
-            <p>My first project involved creating a program that communicated with the newly designd PCBs to operate the company's Sit Stand Desk. Since the PCBs
-                were prototypes, there were bugs with the hardware that I learned how to debug and fix. Through hands-on experience, I learned
+            <p>My first project involved creating a program that communicated with the newly designed PCBs to operate the company's Sit Stand Desk. Since the PCBs
+                were prototypes, there were issues with the hardware that I learned how to debug and fix. Through hands-on experience, I learned
                 how to read a circuit board schematic, and use it to test various circuits that made up the board. I tested these circuits using a multimeter 
                 to compare voltage readings and check continuity between components. When I was able to isolate and determine the problem of the circuit, I 
                 learned how to properly solder/de-solder the PCB components. 
             </p>
             <p>
-                Once we had a working PCB prototype, I began to write the embedded C++ program on the ESP32 that operate the Desk and serve to handle Bluetooth functionality
+                Once we had a working PCB prototype, I began to write the embedded C++ program on the ESP32 that would operate the Desk and serve to handle Bluetooth communication
                 from the mobile applications. The C++ program uses UART to write serial data to the desk's motors. The serial data was obtained through an 
-                oscilloscope we used for tesing the three states of the desk's motors: Up, Down, or Stopped. Along with UART I also made use of the I2C protocol where
-                I incorporated an accelerometer on the PCB to detect various types of impact.
+                oscilloscope we used for testing the three states of the desk's motors: Up, Down, or Stopped. Along with UART I also made use of the I2C protocol where
+                I incorporated an accelerometer on the PCB to detect various types of impact through ADC conversion.
             </p>
         </div>
         <div class="col-lg-5 col-md-12 text-center">
@@ -58,19 +58,19 @@ permalink: /projects/ergo-desk-firmware/
         <div class="col-lg-7 col-md-12 text-left">
             <p>
                 The Desk had many peripherals a part of its PCB that I learned how to control via software. These peripherals included a vibrating motor for haptic feedback,
-                accelerometer for impact detection, and capctive touch sensors for movement operation. 
+                accelerometer for impact detection, and capacitive touch sensors for movement. 
             </p>
             <p>  
-                In combination with programming capactive touch inputs, the accelerometer was used for intuitive 
-                up/down movements by the user. It was also used to to detect any abnormal impact when the desk was in movement alerting the desk to stop moving
-                automatically. Furthermore, I had to work the program such that it incorporated a Bluetooth Server so the user could control the desk over
-                the mobile applications. On top of Bluetooth desk controls, I also used the ESP32's EEPROM memory to store data in case the device got unplugged. The use of
+                In combination with programming capacitive touch inputs, the accelerometer was used for intuitive 
+                up/down movements controlled by the user. It was also used to detect any abnormal impact when the desk was in movement alerting the desk to stop moving
+                automatically. Furthermore, I had to design the program such that it incorporated a Bluetooth Server to allow users the ability to control the desk
+                via the mobile applications. On top of Bluetooth desk controls, I also used the ESP32's EEPROM memory to store data in case the device got unplugged. The use of
                 EEPROM led to one of the coolest features I designed which was using a WiFi server to include Over-The-Air (OTA) firmware updates.
             </p>
             <p>
                 With this program being as large as it was, rigorous testing went into the product before it was released. I am very fortunate to have had to opportunity to
-                take on a project of such magnitude, espeically with this being Ergonomyx's flagship product. I learned an immense amount of embedded engineering with this project.
-                This not only included working at the electrical level with the PCBs or on the embedded code, but also how to work in a memory-contrained environment and how to
+                take on a project of such magnitude, especially with this being Ergonomyx's flagship product. I learned an immense amount of embedded engineering with this project.
+                This not only included working at the electrical level with the PCBs or on the embedded code, but also how to work in a memory-constrained environment; how to
                 write the most efficient C++ code possible.
             </p>
             <br>
