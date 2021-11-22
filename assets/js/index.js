@@ -19,6 +19,9 @@ $(document).ready(function () {
   });
 
   if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))){
+    $('.interest-food').hover(function () {
+      $('.interest-food.section-container').toggleClass('two-is-active');
+    });
     $('.interest-hockey').hover(function () {
       $('.interest-hockey.section-container').toggleClass('two-is-active');
     });
