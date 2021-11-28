@@ -200,7 +200,7 @@
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-color: transparent;
+  background-color: #292929;
   border: 2px solid grey;
   border-radius: 0.6em;
   color: grey;
@@ -217,8 +217,8 @@
   font-weight: 700;
 }
 
-.btn-github-link:hover, .btn-github-link:focus {
-  color: #fff;
+.btn-github-link:hover {
+  background-color: #fff;
   outline: 0;
 }
 

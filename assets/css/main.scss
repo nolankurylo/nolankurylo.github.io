@@ -251,10 +251,10 @@
 .btn-github-link {
   
   appearance: none;
-  background-color: transparent;
+  background-color: #292929;
   border: 2px solid grey;
   border-radius: 0.6em;
-  color: grey;
+  color: grey ;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 400;
@@ -267,9 +267,8 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 
-  &:hover,
-  &:focus {
-    color: #fff;
+  &:hover{
+    background-color: #fff;
     outline: 0;
   }
 }
