@@ -18,6 +18,15 @@
       drawing = true;
       
     })
+    canvas.addEventListener ('touchstart', function(e){
+        painted.push([]);
+        context.beginPath();
+        drawing = true;
+        
+      })
+    canvas.addEventListener ('touchend', function(e){
+        drawing = false;
+    })
   
     document.addEventListener ('mouseup', function(e){
       drawing = false
@@ -25,15 +34,25 @@
       
     })
   
-    document.addEventListener ('mousemove', function(e){
+    canvas.addEventListener ('mousemove', function(e){
+        e.preventDefault();
+        e.stopPropagation();
       if (drawing){
         var rect = canvas.getBoundingClientRect();
         painted[painted.length - 1].push({x:e.clientX -rect.left , y: e.clientY - rect.top});
       }
-      else{
-          
-      }
+      
     })
+    canvas.addEventListener("touchmove", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (drawing){
+            console.log(e.touches[0].clientY)
+            var rect = canvas.getBoundingClientRect();
+            painted[painted.length - 1].push({x:e.touches[0].clientX -rect.left  , y: e.touches[0].clientY - rect.top});
+        }
+      });
   
   
     var draw = function () {
@@ -51,7 +70,7 @@
         }
         
         context.strokeStyle = '#fff';
-        context.lineWidth = 10;
+        context.lineWidth = 20;
         context.stroke();
         
       }
