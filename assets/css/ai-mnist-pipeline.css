@@ -1,6 +1,20 @@
 #blackboard{
-    /* cursor: crosshair; */
     background-color: black;
     width: 350px;
     height: 350px;
+    border-radius: 5px;
+    z-index: 2;
+    
   }
+#backboard{
+  background: url("/assets/img/wood-bg.jpg") no-repeat 0 0 scroll;
+  background-size: 100% 100%;
+  width: 380px;
+  height: 380px;
+  border-radius: 5px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}

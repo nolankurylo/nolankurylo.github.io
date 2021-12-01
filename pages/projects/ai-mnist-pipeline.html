@@ -30,18 +30,83 @@ permalink: /projects/ai-mnist-pipeline/
 </div>
 
 <div class="container" style="margin-top: 45px;">
-    <div class="row  flex-lg-row" style="margin-bottom: 40px; margin-top: 20px;">
-        <div class="col-lg-5 col-md-12 text-center" >
-            <canvas id="blackboard"></canvas>
-            <a type="button" id="blackboard-reset" href="#" class="btn btn-github-link third">Reset</a>
-            <a type="button" id="blackboard-predict" href="#" class="btn btn-github-link third">Predict</a>
+    <div class="row  flex-lg-row" style="margin-top: 20px;">
+        <div class="col-12 text-center" style="margin-bottom: 10px">
+            <h1 class="h1-title">AI MNIST Pipeline<a type="button" target="_blank" href="https://github.com/nolankurylo/AI-MNIST-Pipeline" class="btn btn-github-link third">GITHUB</a></h1>
+            <h3 class="h1-title">Write a number 0-9 on the blackboard below!</h3>
+        </div>
+    </div>
+    <hr>
+    <div class="row flex-lg-row " style="margin-bottom: 40px; margin-top: 30px;">
+        
+        <div class="col-lg-6 col-md-12 text-center" style="margin-bottom: 40px;" >
+            <h1 class="h1-title">Blackboard</h1>
+            <div style="justify-content: center;display: flex;">
+                
+                <div id=backboard class="text-center">
+                    <canvas id="blackboard"></canvas>
+                </div>
+            </div>
+            
+            <br>
+            <a type="button" id="blackboard-reset" href="#/" class="btn btn-github-link third">Reset</a>
+            <a type="button" id="blackboard-predict" href="#/" class="btn btn-github-link third">Predict</a>
 
         </div>
-        <div class="col-lg-7 col-md-12 text-center">
-            <h1>Predicted Number:</h1>
-            <h2 id="prediction">Write a number 0-9 on the blackboard!</h2>
+        <div class="col-lg-6 col-md-12 text-center">
+            <h1 class="h1-title">AI Predicted Number</h1>
+            
+            
+            <div style="justify-content: center;display: flex;">
+                <div style="border: 5px solid#292929; height: 380px; width: 380px; border-radius: 5px; display: flex; align-items: center; justify-content: center;">
+                        <h2 style="font-size: 150pt;" id="prediction"></h2>
+                </div>
+            
+            </div>
         </div>
         
+        
+    </div>
+    <hr>
+    <div class="container">
+        <p>    
+            This project is a demonstration of an end-to-end machine learning pipeline application that involves
+            data acquisition, exploratory data analysis, data preprocessing, model training, and model deployment.
+            The focus of this project was not so much the AI itself but more so the process to deploy a working AI 
+            system into production, with a frontend for user use. 
+        </p>
+        <p>
+            This project uses Python with TensorFlow, Keras, Scikit-Learn, NumPy, and Pandas ML libraries for the pipeline process.
+            For model deployment, the application is setup as a Docker image, stored in AWS ECR and deployed as an image on AWS Lambda 
+            accessible through the AWS Gateway as a REST API. The frontend process involves capturing the number written on the blackboard as a base64 encoded image where it is sent to
+            the AWS Lambda function. From there, the image is converted into a NumPy 28x28 pixel area, is preprocessed, then passed into 
+            the model for prediction. A flow diagram of the entire process can be seen below
+        </p>
+        <p>
+            This function uses the basic MNIST training and testing datasets, achieving a validation accuracy of ~99% and a categorical 
+            cross entropy loss of ~0.03 as seen from the plots below. From both plots, there are almost no signs of overfitting.
+            <div class="row align-items-center" style="margin-bottom: 40px;;">
+                <div class="col-lg-6 col-md-12 text-center">
+                    <img src="/assets/img/mnist-acc.jpg" alt="MNIST Accuracy" height="auto" width="350px">
+                </div>
+                <div class="col-lg-6 col-md-12 text-center">
+                    <img src="/assets/img/mnist-loss.jpg" alt="MNIST Loss" height="auto" width="350px">
+                </div>
+            </div>
+        </p>
+        <p>
+            To reiterate, the objective of this project was not the machine learning models themselves but moreso the process as
+            a whole. However, some time was spent tuning the hyperparameters for the Convolutional Neural Network that is being used
+            to perform the predictions. The neural network is composed of a convolutional and max pooling layer followed by two fully
+            connected dense layers with dropout and batch normalization to help reduce overfitting of the model.
+            <br>
+            <div class="text-center">
+                <img src="/assets/img/mnist-model.jpg" alt="MNIST Model" height="auto" width="350px">
+            </div>
+            
+        </p>
+        
+    
     </div>
     
     
