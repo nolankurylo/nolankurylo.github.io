@@ -72,15 +72,15 @@ permalink: /projects/ai-mnist-pipeline/
         <p>    
             This project is a demonstration of an end-to-end machine learning pipeline application that involves
             data acquisition, exploratory data analysis, data preprocessing, model training, and model deployment.
-            The focus of this project was not so much the AI itself but more so the process to deploy a working AI 
-            system into production, with a frontend for user use. 
+            The focus of this project was not so much the AI itself but moreso the process to deploy a working AI 
+            system into production, with an interactive frontend. The AI being used is a Convolutional Neural Network.
         </p>
         <p>
             This project uses Python with TensorFlow, Keras, Scikit-Learn, NumPy, and Pandas ML libraries for the pipeline process.
             For model deployment, the application is setup as a Docker image, stored in AWS ECR and deployed as an image on AWS Lambda 
             accessible through the AWS Gateway as a REST API. The frontend process involves capturing the number written on the blackboard as a base64 encoded image where it is sent to
             the AWS Lambda function. From there, the image is converted into a NumPy 28x28 pixel area, is preprocessed, then passed into 
-            the model for prediction. A flow diagram of the entire process can be seen below
+            the model for prediction.
         </p>
         <p>
             This function uses the basic MNIST training and testing datasets, achieving a validation accuracy of ~99% and a categorical 
@@ -95,10 +95,12 @@ permalink: /projects/ai-mnist-pipeline/
             </div>
         </p>
         <p>
-            To reiterate, the objective of this project was not the machine learning models themselves but moreso the process as
+            To reiterate, the objective of this project was not the machine learning models themselves but with a focus on the process as
             a whole. However, some time was spent tuning the hyperparameters for the Convolutional Neural Network that is being used
-            to perform the predictions. The neural network is composed of a convolutional and max pooling layer followed by two fully
-            connected dense layers with dropout and batch normalization to help reduce overfitting of the model.
+            to perform the predictions. The neural network is composed of a convolutional and max pooling layers followed by two fully
+            connected dense layers with dropout and batch normalization to help reduce overfitting of the model. Finally, the last layer is
+            a 10 neuron dense layer using the softmax activation function. The neural network was fitted using the Adam optimzer with 
+            Exponential Learning Rate Decay. 
             <br>
             <div class="text-center">
                 <img src="/assets/img/mnist-model.jpg" alt="MNIST Model" height="auto" width="350px">
