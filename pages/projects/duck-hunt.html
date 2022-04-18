@@ -1,0 +1,81 @@
+---
+layout: default
+active: projects
+permalink: /projects/duck-hunt-ai/
+---
+<link rel="stylesheet" href="/assets/css/main.css">
+<div class="crumb-container" style="max-width: 100%">
+    <div class="crumb">
+        <a href="/" class="active">
+            <span class="breadcrumb__inner">
+                <span class="breadcrumb__title">Home</span>
+                <span class="breadcrumb__desc"></span>
+            </span>
+        </a>
+        <a href="/projects" class="active">
+            <span class="breadcrumb__inner">
+                <span class="breadcrumb__title">Projects</span>
+                <span class="breadcrumb__desc"></span>
+            </span>
+        </a>
+        <a href="#">
+            <span class="breadcrumb__inner">
+                <span class="breadcrumb__title">Duck Hunt AI</span>
+            </span>
+        </a>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 45px;">
+    
+    <div class="row align-items-center" style="margin-bottom: 40px; ">
+        <div class="col text-left">
+            <div style="margin-bottom: 50px">
+                <h1 class="h1-title">Duck Hunt AI<a type="button" target="_blank" href="https://github.com/nolankurylo/duck-hunt" class="btn btn-github-link third">Github</a></h1>
+            </div>
+          
+            <p>
+                Duck Hunt is a shooter game that was popular during the late 1990s and early 2000s. The game was of ducks flying across the screen 
+                to be shot by the player. This project is based on a variation of the original Duck Hunt that has different
+                kinds of backgrounds and on-screen obstacles. Some of these obstacles include occlusion, contrast changes and wind. 
+            </p>
+
+            <p>
+                The Duck Hunt game offered a problem that was solved through computer vision. More specifically, transfer learning was applied on a custom dataset 
+                via SSD MobileNet V2, SSD ResNet50 and YOLOv5. Various trade-offs were identified in ResNet being more accurate but 
+                slower for inference than MobileNet. The final solution came from fine tuning YOLOv5 which provided a high mean average 
+                precision (mAP) and a fast inference time.
+            </p>
+            <p>
+                The following clips demonstrate the final solution throughout various levels in increasing difficulty. A research paper
+                was also developed alongside the implementation of this project's solution. The research paper can as well
+                 be found below. The levels range from 1-820 and the game works such that multiple shots can be taken in each frame. 
+                 With that being said, the gun's crosshair does not always update to correct location - a constraint of the provided application.
+            </p>
+            <br>
+        </div>
+        
+    </div>
+    <h2 class="h1-title">Solution Demonstration</h2>
+    <div class="row align-items-center flex-lg-row" style="margin-bottom: 40px; margin-top: 20px;">
+        
+        <div class="col-lg-4 col-md-6 text-center" >
+            <h5 class="h1-title">Level 100 - Easy</h5>
+            <img src="/assets/img/solutionlevel100.gif" alt="Level 100" height="auto" width="100%" >
+        </div>
+        <div class="col-lg-4 col-md-6 text-center" >
+            <h5 class="h1-title">Level 700 - Medium</h5>
+            <img src="/assets/img/solutionlevel700.gif" alt="Level 100" height="auto" width="100%" >
+        </div>
+        <div class="col-lg-4 col-md-6 text-center" >
+            <h5 class="h1-title">Level 800 - Hard</h5>
+            <img src="/assets/img/solutionlevel800.gif" alt="Level 100" height="auto" width="100%" >
+        </div>
+       
+        
+    </div>
+    <h2 class="h1-title">Research Paper</h2>
+    <div style=" margin-bottom: 100px;">
+        <iframe src="/assets/pdfjs/web/viewer.html?file=/assets/files/duck-hunt.pdf&pagemode=none" width=100%, height=800px></iframe>
+    </div>
+</div>

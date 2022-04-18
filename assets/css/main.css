@@ -173,9 +173,6 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .crumb-container{
-    visibility: hidden;
-  }
   .section-one {
     width: 100%;
     margin-left: auto;

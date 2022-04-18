@@ -1,0 +1,73 @@
+---
+layout: default
+active: projects
+permalink: /projects/day-trading-system/
+---
+<link rel="stylesheet" href="/assets/css/main.css">
+<div class="crumb-container" style="max-width: 100%">
+    <div class="crumb">
+        <a href="/" class="active">
+            <span class="breadcrumb__inner">
+                <span class="breadcrumb__title">Home</span>
+                <span class="breadcrumb__desc"></span>
+            </span>
+        </a>
+        <a href="/projects" class="active">
+            <span class="breadcrumb__inner">
+                <span class="breadcrumb__title">Projects</span>
+                <span class="breadcrumb__desc"></span>
+            </span>
+        </a>
+        <a href="#">
+            <span class="breadcrumb__inner">
+                <span class="breadcrumb__title">Day Trading System</span>
+            </span>
+        </a>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 45px;">
+    
+    <div class="row align-items-center" style="margin-bottom: 40px; ">
+        <div class="col text-left">
+            <div style="margin-bottom: 50px">
+                <h1 class="h1-title">AWS Day Trading System<a type="button" target="_blank" href="https://github.com/nolankurylo/day-trading-system" class="btn btn-github-link third">Github</a></h1>
+            </div>
+            <h2 class="h1-title">Project Description</h2>
+            <p>
+                A full-stack application that illustrates a distributed system utilizing horizontal and vertical scalability. 
+                Via AWS, the distributed system is deployed to various microservices. The application is designed to allow users 
+                to create an account, log in and buy & sell stocks. Users can set buy and sell triggers based on the share prices 
+                of stocks. The web server uses a custom-made stock server that generates quotes of fake stocks algorithmically. The 
+                web server communicates with a PostgreSQL database. Furthermore, an admin console application is designed to execute 
+                workloads to test the scalability of the system. These workloads are executed in parallel for multiple users at a time. 
+                The goal of the application is to generate and return a log file for a given workload. 
+            </p>
+            
+            <h2 class="h1-title">Scalability and Distributed System</h2>
+            <p>
+                The frontend client and backend 
+                web server exist as EC2 instances. However, the backend is horizontally scaled by an auto-scaling group with a load 
+                balancer to direct traffic in front. The admin console is deployed as a Lambda function for its lightweight abilities. 
+                The database is scaled vertically by manually increasing the database's resources. A secondary database is stored in an 
+                S3 bucket in the case that the primary goes down, achieving fault tolerance. Once the server generates a log file for a
+                 workload, it is stored in an S3 bucket. In terms of security, a Virtual Private Cloud (VPC) was set up to isolate the 
+                 distributed system. Additionally, Cognito is used for authentication, and Secrets Manager is used for storing 
+                 environment variables. The following diagram demonstrates the AWS configuration.
+            </p>
+            
+            <br>
+        </div>
+        
+    </div>
+    <div class="row align-items-center flex-lg-row" style="margin-bottom: 40px; margin-top: 20px;">
+        
+        <div class="col text-center" >
+            <img src="/assets/img/aws.jpeg" alt="AWS" height="auto" width="100%" >
+        </div>
+        
+       
+        
+    </div>
+
+</div>
