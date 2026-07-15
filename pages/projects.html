@@ -4,329 +4,237 @@ active: projects
 permalink: /projects/
 ---
 
-<link rel="stylesheet" href="/assets/css/main.css">
-<div class="text-center">
-    <div class="crumb-container">
-        <div class="crumb ">
-            <a href="/" class="crumb-active active">
-                <span class="breadcrumb__inner">
-                    <span class="breadcrumb__title">Home</span>
-                    <span class="breadcrumb__desc"></span>
-                </span>
-            </a>
-            <a href=# class="">
-                <span class="breadcrumb__inner">
-                    <span class="breadcrumb__title">Projects</span>
-                    <span class="breadcrumb__desc"></span>
-                </span>
-            </a>
+<section class="section" style="padding-top:150px;">
+    <div class="nk-wrap">
+        <div class="sec-head reveal" style="text-align:center;max-width:720px;margin:0 auto 60px;">
+            <span class="eyebrow" style="justify-content:center;">Project Directory</span>
+            <h2>Things I've designed &amp; built</h2>
+            <p style="margin:0 auto;">A mix of individual and collaborative work spanning drones &amp; autonomy, machine
+                learning, embedded systems and full-stack development — grouped by field.</p>
         </div>
-    </div>
-</div>
 
-<div class="container" style="margin-top: 45px;">
-    <div class="text-center">
-        <h1 class="title-text-dark ">Project Directory</h1>
-    <hr>
-    <p class="text-center text-dark" style="padding-bottom: 50px; line-height: 30px">
-        This directory contains all the projects that I have worked on personally, in school or during my co-op work terms.
-        The projects are a combination between individual and collaborative work and are grouped by their field type chronologically.
-    </p>
-    
-    </div>
-    
-    <h2 class="h1-title">Artificial Intelligence / Machine Learning Projects</h2>
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/duck-hunt.jpg" alt="Duck Hunt" class="image-overlay"
-                    style="max-height: 600px; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">Duck Hunt AI</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">A Computer Vision application that uses Transfer Learning to solve the famous "Duck Hunt"
-                            shooter game. Python Implementation and Research Paper.
-                        </p>
-                    </div>
-                    <a class="button-square" href="/projects/duck-hunt-ai/"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">View Project</a>
+        <!-- Drones & Autonomy -->
+        <h3 style="font-family:var(--font-head);font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2);margin:0 0 22px;">Drones &amp; Autonomy</h3>
+        <div class="proj-grid" style="margin-bottom:64px;">
+            <a class="pcard reveal" href="/projects/vanguard/">
+                <div class="pcard-media svg-media">
+                    <span class="pcard-tag">eVTOL · Autonomy</span>
+                    <img src="/assets/img/vanguard.svg" alt="Vanguard autonomous eVTOL testbed">
                 </div>
-            </div>
+                <div class="pcard-body">
+                    <h3>Vanguard — Autonomous eVTOL Testbed</h3>
+                    <p>Hands-on avionics &amp; autonomy on Valkyrie's eVTOL program: a Pixhawk&nbsp;6X + Jetson&nbsp;Orin flight stack and a three-layer obstacle-avoidance system with a physics-based velocity governor.</p>
+                    <div class="pcard-stack"><span>Pixhawk 6X</span><span>Jetson Orin</span><span>ArduPilot</span><span>MAVLink</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a class="pcard reveal" href="/projects/drone-fc/">
+                <div class="pcard-media svg-media">
+                    <span class="pcard-tag">Avionics · Flight Control</span>
+                    <img src="/assets/img/drone-fc.svg" alt="Custom STM32 Flight Controller">
+                </div>
+                <div class="pcard-body">
+                    <h3>Custom STM32 Flight Controller</h3>
+                    <p>A quadcopter built from the flight controller up — a bare STM32H743 running ArduPilot with a hand-authored <code>hwdef</code>, bringing up IMU, barometer, iBUS radio and ESCs myself.</p>
+                    <div class="pcard-stack"><span>STM32H743</span><span>ArduPilot</span><span>hwdef.dat</span><span>SPI / I2C</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/blackboard.jpg" alt="AI MNIST Pipeline" class="image-overlay"
-                    style="max-height: 600px; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">AI MNIST Pipeline</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">An end-to-end Machine Learning application with a deployed frontend for user usage.
-                            Using Python, TensorFlow, and AWS Lambda & S3 Buckets.
-                        </p>
-                    </div>
-                    <a class="button-square" href="/projects/ai-mnist-pipeline/"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">TRY OUT THE
-                        AI</a>
+
+        <!-- AI / ML -->
+        <h3 style="font-family:var(--font-head);font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2);margin:0 0 22px;">Artificial Intelligence / Machine Learning</h3>
+        <div class="proj-grid" style="margin-bottom:64px;">
+            <a class="pcard reveal" href="/projects/duck-hunt-ai/">
+                <div class="pcard-media">
+                    <span class="pcard-tag">Computer Vision</span>
+                    <img src="/assets/img/duck-hunt.jpg" alt="Duck Hunt AI">
                 </div>
-            </div>
+                <div class="pcard-body">
+                    <h3>Duck Hunt AI</h3>
+                    <p>A computer-vision agent that plays Duck Hunt, fine-tuning YOLOv5 and SSD detectors via transfer learning for high mAP at real-time speeds. Includes a research paper.</p>
+                    <div class="pcard-stack"><span>YOLOv5</span><span>Transfer Learning</span><span>Python</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a class="pcard reveal" href="/projects/ai-mnist-pipeline/">
+                <div class="pcard-media">
+                    <span class="pcard-tag">End-to-End ML</span>
+                    <img src="/assets/img/blackboard.jpg" alt="AI MNIST Pipeline">
+                </div>
+                <div class="pcard-body">
+                    <h3>AI MNIST Pipeline</h3>
+                    <p>An end-to-end ML application with a live front-end, served from AWS Lambda &amp; S3 using a TensorFlow model. Draw a digit and watch it classify in real time.</p>
+                    <div class="pcard-stack"><span>TensorFlow</span><span>AWS Lambda</span><span>S3</span></div>
+                    <span class="pcard-link">Try it live <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a class="pcard reveal" href="/projects/imdb-rating-prediction/">
+                <div class="pcard-media">
+                    <span class="pcard-tag">ML Research</span>
+                    <img src="/assets/img/imdb-logo.jpg" alt="IMDb Rating Prediction">
+                </div>
+                <div class="pcard-body">
+                    <h3>IMDb Rating Prediction</h3>
+                    <p>A machine-learning research project predicting IMDb ratings, complete with a research poster and paper.</p>
+                    <div class="pcard-stack"><span>Python</span><span>scikit-learn</span><span>Research</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/imdb-logo.jpg" alt="imdb logo" class="image-overlay"
-                    style="max-height: 600px; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">IMDb Rating Prediction</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">A Machine Learning research project with a poster and a research paper.</p>
-                        
-                    </div>
-                    <a class="button-square" href="/projects/imdb-rating-prediction/"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                        PROJECT</a>
+
+        <!-- Embedded -->
+        <h3 style="font-family:var(--font-head);font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2);margin:0 0 22px;">Embedded Systems</h3>
+        <div class="proj-grid" style="margin-bottom:64px;">
+            <a class="pcard reveal" href="/projects/dds">
+                <div class="pcard-media">
+                    <span class="pcard-tag">RTOS</span>
+                    <img src="/assets/img/DDS-square.jpg" alt="Deadline Driven Scheduler">
                 </div>
-            </div>
+                <div class="pcard-body">
+                    <h3>Deadline Driven Scheduler</h3>
+                    <p>A FreeRTOS deadline-driven scheduler on an STM32F4 using an Earliest-Deadline-First (EDF) algorithm, written in C.</p>
+                    <div class="pcard-stack"><span>FreeRTOS</span><span>C</span><span>STM32</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a class="pcard reveal" href="/projects/tls">
+                <div class="pcard-media">
+                    <span class="pcard-tag">RTOS</span>
+                    <img src="/assets/img/TLS-square.jpg" alt="Traffic Light System">
+                </div>
+                <div class="pcard-body">
+                    <h3>Traffic Light System</h3>
+                    <p>A FreeRTOS traffic-light controller on an STM32F4 reacting to approaching cars via tasks, timers and message queues.</p>
+                    <div class="pcard-stack"><span>FreeRTOS</span><span>C</span><span>STM32</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a class="pcard reveal" href="/projects/pwm-system">
+                <div class="pcard-media">
+                    <span class="pcard-tag">Microcontroller</span>
+                    <img src="/assets/img/pwm-img.jpg" alt="PWM Signal Monitoring System">
+                </div>
+                <div class="pcard-body">
+                    <h3>PWM Signal Monitoring System</h3>
+                    <p>An STM32F0 driving its peripherals — timer module, optocoupler, potentiometer and LCD — in C.</p>
+                    <div class="pcard-stack"><span>C</span><span>STM32</span><span>PWM</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a class="pcard reveal" href="/projects/ergo-desk-firmware">
+                <div class="pcard-media">
+                    <span class="pcard-tag">Firmware</span>
+                    <img src="/assets/img/desk2.jpg" alt="Ergonomyx Desk Firmware">
+                </div>
+                <div class="pcard-body">
+                    <h3>Ergonomyx Desk Firmware</h3>
+                    <p>C++ firmware for a PCB and its peripherals — motors, sensors and accelerometers — driving a smart standing desk.</p>
+                    <div class="pcard-stack"><span>C++</span><span>PCB</span><span>Sensors</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a class="pcard reveal" href="/projects/ergo-bike-firmware">
+                <div class="pcard-media">
+                    <span class="pcard-tag">Firmware</span>
+                    <img src="/assets/img/bike.jpg" alt="Ergonomyx Bike Firmware">
+                </div>
+                <div class="pcard-body">
+                    <h3>Ergonomyx Bike Firmware</h3>
+                    <p>C++ firmware for a PCB and peripherals such as reed switches and sensors, recording live data from an exercise bike.</p>
+                    <div class="pcard-stack"><span>C++</span><span>PCB</span><span>Sensors</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a class="pcard reveal" href="/projects/arduino-clock/">
+                <div class="pcard-media">
+                    <span class="pcard-tag">Arduino</span>
+                    <img src="/assets/img/clock.jpg" alt="Arduino Clock">
+                </div>
+                <div class="pcard-body">
+                    <h3>Arduino Clock</h3>
+                    <p>An Arduino + LCD display using I2C and timer-driven interrupts to show the current date and time.</p>
+                    <div class="pcard-stack"><span>Arduino</span><span>C++</span><span>I2C</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a class="pcard reveal" href="/projects/security-app">
+                <div class="pcard-media">
+                    <span class="pcard-tag">IoT</span>
+                    <img src="/assets/img/cam.jpeg" alt="Raspberry Pi Security Camera">
+                </div>
+                <div class="pcard-body">
+                    <h3>Raspberry Pi Security Camera</h3>
+                    <p>A Raspberry Pi, camera and PIR sensor that captures and uploads a video clip to a website when motion is detected.</p>
+                    <div class="pcard-stack"><span>Raspberry Pi</span><span>Python</span><span>Node.js</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a class="pcard reveal" href="/projects/collatz">
+                <div class="pcard-media">
+                    <span class="pcard-tag">Microcontroller</span>
+                    <img src="/assets/img/atmega2560.jpg" alt="Atmega 2560 Collatz Calculator">
+                </div>
+                <div class="pcard-body">
+                    <h3>Atmega 2560 Collatz Calculator</h3>
+                    <p>A keypad-driven cursor on an LCD using multiple interrupts and ADC conversion on an ATmega2560.</p>
+                    <div class="pcard-stack"><span>C</span><span>ATmega</span><span>ADC</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a class="pcard reveal" href="/projects/vex-robot">
+                <div class="pcard-media">
+                    <span class="pcard-tag">Robotics</span>
+                    <img src="/assets/img/vexrobot.jpg" alt="Autonomous Underwater Robot">
+                </div>
+                <div class="pcard-body">
+                    <h3>Autonomous Underwater Robot</h3>
+                    <p>A cable-connecting VEX robot programmed in RobotC for a first-year engineering design project.</p>
+                    <div class="pcard-stack"><span>RobotC</span><span>VEX</span><span>Robotics</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
         </div>
-    </div>
-    <h2 class="h1-title">Embedded Systems Projects</h2>
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/DDS-square.jpg" alt="Ergo Desk" class="image-overlay"
-                    style="max-height: 600px; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">Deadline Driven Schedular</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">Using freeRTOS in C, programming an STM32F4_DISCOVERY microcontroller to 
-                            create a Deadline Driven Schedular under Earliest Deadline First (EDF) scheduling algorithm</p>
-                    </div>
-                    <a class="button-square" href="/projects/dds"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                        PROJECT</a>
+
+        <!-- Cloud / Web / App -->
+        <h3 style="font-family:var(--font-head);font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2);margin:0 0 22px;">Cloud Computing / Web / App Development</h3>
+        <div class="proj-grid">
+            <a class="pcard reveal" href="/projects/day-trading-system">
+                <div class="pcard-media">
+                    <span class="pcard-tag">Distributed Systems</span>
+                    <img src="/assets/img/aws-square.jpg" alt="AWS Day Trading System">
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/TLS-square.jpg" alt="Ergo Desk" class="image-overlay"
-                    style="max-height: 600px; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">Traffic Light System</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">Using freeRTOS in C, programming an STM32F4_DISCOVERY microcontroller to 
-                            control a traffic light based on approaching cars: potentiometer, tasks, timers and message queues.
-                            </p>
-                    </div>
-                    <a class="button-square" href="/projects/tls"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                        PROJECT</a>
+                <div class="pcard-body">
+                    <h3>AWS Day Trading System</h3>
+                    <p>A distributed trading system using load balancing and horizontal/vertical scaling on AWS — client, console, stock/quote server and relational database.</p>
+                    <div class="pcard-stack"><span>AWS</span><span>Distributed</span><span>SQL</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/pwm-img.jpg" alt="Ergo Desk" class="image-overlay"
-                    style="max-height: 600px; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">PWM-Signal-Monitoring-System</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">Using C, programming an STMF0 microcontroller to control its peripherals: timer module, optocoupler, potentiometer and LCD display.</p>
-                    </div>
-                    <a class="button-square" href="/projects/pwm-system"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                        PROJECT</a>
+            </a>
+            <a class="pcard reveal" href="/projects/iou-app">
+                <div class="pcard-media">
+                    <span class="pcard-tag">Mobile</span>
+                    <img src="/assets/img/apps.jpg" alt="IOU Mobile App">
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/desk2.jpg" alt="Ergo Desk" class="image-overlay"
-                    style="max-height: 600px; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">Ergonomyx Desk Firmware</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">Using C++, programming a PCB and its peripherals such as motors, sensors and accelerometers to operate a Desk.</p>
-                    </div>
-                    <a class="button-square" href="/projects/ergo-desk-firmware"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                        PROJECT</a>
+                <div class="pcard-body">
+                    <h3>IOU Mobile App</h3>
+                    <p>A full-stack iOS app that tracks IOUs between groups of people, backed by a Node.js API and PostgreSQL.</p>
+                    <div class="pcard-stack"><span>React Native</span><span>Node.js</span><span>PostgreSQL</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/bike.jpg" alt="Ergo Bike" class="image-overlay"
-                    style="height:100%; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">Ergonomyx Bike Firmware</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">Using C++, programming a PCB and its peripherals such as reed switches, and sensors to record data from a Bike</p>
-                    </div>
-                    <a class="button-square" href="/projects/ergo-bike-firmware"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                        PROJECT</a>
+            </a>
+            <a class="pcard reveal" href="/projects/ergonomyx">
+                <div class="pcard-media">
+                    <span class="pcard-tag">Full-Stack</span>
+                    <img src="/assets/img/ergoworkspace.jpg" alt="Ergonomyx E-commerce Website">
                 </div>
-            </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/clock.jpg" alt="Arduino Clock" class="image-overlay"
-                    style="height: auto; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">Arduino Clock</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">An Arduino and LCD display that uses I2C and timer driven interrupts
-                            to display the current date and time.</p>
-                    </div>
-                    <a class="button-square" href="/projects/arduino-clock/"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                        PROJECT</a>
+                <div class="pcard-body">
+                    <h3>Ergonomyx E-commerce Website</h3>
+                    <p>A full-stack e-commerce site built from the ground up with HTML, Python, Node.js and PostgreSQL.</p>
+                    <div class="pcard-stack"><span>Node.js</span><span>Python</span><span>PostgreSQL</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/cam.jpeg" alt="Security App" class="image-overlay"
-                    style="height: auto; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">Raspberry Pi Security Camera</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">A Raspberry Pi, Camera and PIR system that sends a video clip to a website
-                            when movement is detected.</p>
-                    </div>
-                    <a class="button-square" href="/projects/security-app"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                        PROJECT</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/atmega2560.jpg" alt="Atmega 2560 Arduino" class="image-overlay"
-                    style="height: auto; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">Atmega 2560 Collatz Calculator</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">A keypad controls a cursor on the LCD. Uses multiple interrupts and ADC conversion.</p>
-                    </div>
-                    <a class="button-square" href="/projects/collatz"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                        PROJECT</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/vexrobot.jpg" alt="VEX Robot" class="image-overlay"
-                    style="height: auto; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">Autonomous Underwater Robot</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">A cable connecting robot that is written in Robot C.</p>
-                    </div>
-                    <a class="button-square" href="/projects/vex-robot"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                        PROJECT</a>
-                </div>
-            </div>
+            </a>
         </div>
     </div>
-    <h2 class="h1-title">Cloud Computing / Web / App Development Projects</h2>
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/aws-square.jpg" alt="Mobile Apps" class="image-overlay"
-                    style="max-height: 600px; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">AWS Day Trading System</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">A distributed system that uses load balancing, horizontal and vertical scaling
-                            on AWS. Consists of a client, console, stock/quote server and relational database.
-                        </p>
-                    </div>
-                    <a class="button-square" href="/projects/day-trading-system"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                        PROJECT</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/apps.jpg" alt="Mobile Apps" class="image-overlay"
-                    style="max-height: 600px; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">IOU Mobile App</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">A Full Stack, IOS application that keeps track of IOUs between groups
-                            of people.</p>
-                    </div>
-                    <a class="button-square" href="/projects/iou-app"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                        PROJECT</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6 col-sm-12 text-center" style="margin-bottom: 75px;">
-            <div class="image-overlay-container">
-                <img src="/assets/img/ergoworkspace.jpg" alt="E-commerce Site" class="image-overlay"
-                    style="height: auto; width:100%">
-                <div class="inner-overlay"></div>
-                <div class="text-overlay">
-                    <div class="overlay-header">
-                        <h3 class="title-text-white">Ergonomyx E-commerce Website</h3>
-                    </div>
-                    <div class="overlay-text">
-                        <p class="text-white">A Full Stack web application using HTML, Python, Node.js and Postgresql</p>
-                    </div>
-                    <a class="button-square" href="/projects/ergonomyx"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                        PROJECT</a>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-</div>
+</section>

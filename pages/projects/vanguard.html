@@ -1,0 +1,130 @@
+---
+layout: default
+active: projects
+permalink: /projects/vanguard/
+---
+
+<section class="section" style="padding-top:140px;">
+    <div class="nk-wrap" style="max-width:960px;">
+
+        <a href="/projects" class="pcard-link" style="margin-bottom:28px;display:inline-flex;"><i class="fas fa-arrow-left"></i> All projects</a>
+
+        <div style="margin-bottom:26px;">
+            <span class="eyebrow">Valkyrie · eVTOL R&amp;D · Autonomy &amp; Avionics</span>
+            <h1 style="font-family:var(--font-head);font-weight:700;font-size:clamp(30px,5.5vw,50px);letter-spacing:-0.02em;margin:6px 0 0;">Vanguard — Autonomous eVTOL Testbed</h1>
+        </div>
+
+        <div class="hero-visual" style="aspect-ratio:16/7;margin-bottom:36px;">
+            <img src="/assets/img/vanguard.svg" alt="Vanguard autonomous eVTOL testbed" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        </div>
+
+        <div class="about-copy" style="margin-bottom:44px;">
+            <p style="color:var(--muted);font-size:17px;line-height:1.8;">
+                Vanguard is Valkyrie's eVTOL research program. I drive hands-on hardware and flight-software development
+                on a <strong>quad-rotor prototype testbed</strong> — architected so the components, sensors and autonomy
+                code transfer up to a full-scale aircraft. I select the avionics, wire the hardware, author the firmware
+                configuration, and write the autonomy software that runs on top of it.
+            </p>
+            <p style="color:var(--muted);font-size:17px;line-height:1.8;">
+                The current flight stack pairs a <strong>Pixhawk 6X Pro</strong> flight controller with an
+                <strong>NVIDIA Jetson Orin</strong> companion computer over <strong>MAVLink</strong>, with an external
+                compass, downward lidar, downward optical flow and a forward camera. I set the Jetson up as a full
+                on-aircraft development environment — running the toolchain and AI-assisted development directly on the
+                companion computer.
+            </p>
+        </div>
+
+        <!-- Flagship: three-layer obstacle avoidance -->
+        <h2 class="h1-title" style="font-size:24px;margin-bottom:10px;">Three-layer obstacle avoidance</h2>
+        <p style="color:var(--muted);font-size:16px;line-height:1.8;margin-bottom:28px;max-width:760px;">
+            The flagship feature is a defence-in-depth avoidance architecture — a velocity-governed "safety pillow" so
+            the vehicle can't be flown into an obstacle at any speed. Each layer stands on its own, and the novel logic
+            lives on the companion computer so the autopilot stays the certified-style safety core (no firmware fork).
+        </p>
+
+        <div class="vg-layers">
+            <div class="vg-layer">
+                <div class="vg-badge">Layer 1</div>
+                <h4>Flight-controller safety floor</h4>
+                <p>Obstacle sensors wired directly into the Pixhawk, driving ArduPilot's proximity / AVOID subsystem.
+                   Deterministic, and functional even if the companion computer drops offline.</p>
+                <div class="pcard-stack"><span>ArduPilot AVOID</span><span>Proximity</span><span>Deterministic</span></div>
+            </div>
+            <div class="vg-layer">
+                <div class="vg-badge">Layer 2</div>
+                <h4>Jetson perception</h4>
+                <p>A depth-camera computer-vision pipeline builds a local 3D obstacle map on the Jetson and streams it to
+                   ArduPilot as <code>OBSTACLE_DISTANCE_3D</code> MAVLink messages at ≥&nbsp;10&nbsp;Hz.</p>
+                <div class="pcard-stack"><span>Depth CV</span><span>3D map</span><span>MAVLink ≥10Hz</span></div>
+            </div>
+            <div class="vg-layer">
+                <div class="vg-badge">Layer 3</div>
+                <h4>Velocity governor</h4>
+                <p>A physics-based braking envelope, <code>v_max = √(2·a·(range − margin))</code>, shapes velocity
+                   setpoints so the aircraft always has room to stop — logging every intervention.</p>
+                <div class="pcard-stack"><span>Braking envelope</span><span>Setpoint shaping</span><span>Telemetry</span></div>
+            </div>
+        </div>
+
+        <p style="color:var(--muted);font-size:15px;line-height:1.8;margin:26px 0 44px;max-width:760px;">
+            I performed a sensor-suite gap analysis against the braking-envelope math and specified the additions to
+            close it — 360° scanning lidar for Layer 1, a forward depth camera for Layer 2, and an upward
+            time-of-flight rangefinder — then benchmarked flight-controller and firmware choices (ArduPilot vs PX4,
+            triple-redundant IMU autopilots) on transferability to the full-scale build.
+        </p>
+
+        <!-- Autonomy demo features -->
+        <h2 class="h1-title" style="font-size:24px;margin-bottom:20px;">Autonomy features</h2>
+        <div class="skills-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:26px;">
+            <div class="skill-card">
+                <div class="ic"><i class="fas fa-crosshairs"></i></div>
+                <h4>Precision landing</h4>
+                <ul><li>AprilTag tracking</li><li>Onto a moving platform</li></ul>
+            </div>
+            <div class="skill-card">
+                <div class="ic"><i class="fas fa-shield-alt"></i></div>
+                <h4>Fault recovery</h4>
+                <ul><li>Motor-failure simulation</li><li>Autonomous recovery</li></ul>
+            </div>
+            <div class="skill-card">
+                <div class="ic"><i class="fas fa-border-all"></i></div>
+                <h4>Geofence cushion</h4>
+                <ul><li>Proximity "force field"</li><li>Refuses to cross the boundary</li></ul>
+            </div>
+            <div class="skill-card">
+                <div class="ic"><i class="fas fa-route"></i></div>
+                <h4>Trajectory optimization</h4>
+                <ul><li>AI-assisted, on-board</li><li>Runs on the Jetson</li></ul>
+            </div>
+            <div class="skill-card">
+                <div class="ic"><i class="fas fa-wind"></i></div>
+                <h4>Disturbance rejection</h4>
+                <ul><li>Wind-gust rejection</li><li>Acoustic / vibration logging</li></ul>
+            </div>
+            <div class="skill-card">
+                <div class="ic"><i class="fas fa-cube"></i></div>
+                <h4>Airframe design</h4>
+                <ul><li>Custom frame &amp; mounts</li><li>Scripted CAD → STL → print</li></ul>
+            </div>
+        </div>
+
+        <h2 class="h1-title" style="font-size:22px;margin:34px 0 16px;">Flight stack &amp; tooling</h2>
+        <div class="pcard-stack" style="margin-bottom:44px;">
+            <span>Pixhawk 6X Pro</span><span>NVIDIA Jetson Orin</span><span>ArduPilot</span><span>MAVLink</span><span>Depth CV</span><span>Scanning Lidar</span><span>Optical Flow</span><span>RTK GPS</span><span>Python</span>
+        </div>
+
+        <div class="cta">
+            <h2 style="font-size:28px;">Where it's headed</h2>
+            <p>The testbed exists to de-risk a full-scale aircraft — every component, sensor and control law is chosen to transfer upward.</p>
+            <div class="cta-actions">
+                <a class="btn-nk btn-primary-nk" href="/projects/drone-fc/"><i class="fas fa-microchip"></i> See my STM32 flight controller</a>
+                <a class="btn-nk btn-ghost-nk" href="/projects">More projects <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <p style="color:var(--faint);font-size:12.5px;font-family:var(--font-mono);margin-top:26px;line-height:1.7;">
+            Note: this page describes engineering architecture only — the flight stack, autonomy layers and control
+            physics. Program business details are intentionally omitted.
+        </p>
+    </div>
+</section>
