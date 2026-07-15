@@ -3,17 +3,14 @@
         <span class="brand-mark">NK</span>
         <span>Nolan Kurylo<span class="brand-dot">.</span></span>
     </a>
-    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse-side" data-target=".side-collapse"
-        data-target-2=".side-collapse-container">
+    <button class="navbar-toggler collapsed" type="button" aria-label="Toggle navigation" data-toggle="collapse-side"
+        data-target=".side-collapse" data-target-2=".side-collapse-container">
         <span class="icon-bar top-bar"></span>
         <span class="icon-bar middle-bar"></span>
         <span class="icon-bar bottom-bar"></span>
     </button>
     <div class="navbar-collapse side-collapse in">
         <ul class="navbar-nav ml-auto">
-            <div class="mobile-visible">
-                <div class="mobile-image"></div>
-            </div>
             <li class="nav-item {% if page.active == 'index' %} active {% endif %}">
                 <a class="nav-link on mobile-pages" href="/"><i
                         class="fas fa-home mobile-visible mobile-icon"></i>Home</a>
@@ -26,7 +23,7 @@
                 <a class="nav-link on mobile-pages" href="/resume"><i class="fas fa-file mobile-visible mobile-icon"></i>Résumé</a>
             </li>
             <li class="nav-item {% if page.active == 'contact' %} active {% endif %}">
-                <a class="nav-link on mobile-pages nav-cta" href="/contact"><i class="fas fa-paper-plane mobile-visible mobile-icon"></i>Get in touch</a>
+                <a class="nav-link on mobile-pages nav-cta" href="/contact"><i class="fas fa-paper-plane mobile-visible mobile-icon" style="color:#fff;"></i>Get in touch</a>
             </li>
         </ul>
     </div>
