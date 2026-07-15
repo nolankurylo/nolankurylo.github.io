@@ -1,9 +1,9 @@
-$(".intro-start").click(function() {
-  $("html, body").animate({ scrollTop: $("#about-section").offset().top  }, 1000);
+$(".intro-start").click(function () {
+  var target = $("#about-section");
+  if (target.length) {
+    $("html, body").animate({ scrollTop: target.offset().top }, 1000);
+  }
 });
-
-
-AOS.init();
 
 $(document).ready(function () {
   var sideslider = $('[data-toggle=collapse-side]');

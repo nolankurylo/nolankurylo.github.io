@@ -2,529 +2,393 @@
 layout: default
 active: index
 ---
-<link rel="stylesheet" href="/assets/css/main.css">
-<div class="jumbotron jumbotron-fluid parrallax" id='banner-image'>
-    <div class="container">
-        <div style="height:50vh;">
-            <div class="svg-container" style="min-height: 1000px;">
-                <div id="my-svg"></div>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+    <div class="nk-wrap">
+        <div class="hero-grid">
+            <div class="hero-copy">
+                <span class="eyebrow">Senior Machine Learning Engineer · Austin, TX</span>
+                <h1>Engineering AI for<br><span class="grad">drones, aviation &amp; autonomy.</span></h1>
+                <p class="hero-lead">
+                    I'm Nolan Kurylo — a hands-on machine learning engineer working across
+                    <strong style="color:var(--text)">avionics, autonomy and applied ML</strong>. At
+                    <strong style="color:var(--text)">Valkyrie</strong> in Austin, I build the flight software and
+                    autonomy stack for an eVTOL R&amp;D program — from wiring the hardware to writing the obstacle-avoidance
+                    control laws that run on it.
+                </p>
+                <div class="hero-cta">
+                    <a class="btn-nk btn-primary-nk" href="/projects">View projects <i class="fas fa-arrow-right"></i></a>
+                    <a class="btn-nk btn-ghost-nk" href="/resume"><i class="fas fa-file-alt"></i> Résumé</a>
+                    <a class="btn-nk btn-ghost-nk" href="https://github.com/nolankurylo" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+                <div class="hero-tags">
+                    <span class="tag"><b>eVTOL</b> autonomy</span>
+                    <span class="tag">Avionics · ArduPilot</span>
+                    <span class="tag">Computer Vision</span>
+                    <span class="tag">LLM / Claude API</span>
+                </div>
             </div>
-        </div>
-        <div class="text-center intro" style="min-height:50vh;">
-            <h1 data-aos="zoom-in" style="font-family: Baskervville;" class="title-text-white">Software Engineer 
-                specialized in Data Mining & Analysis, Artificial Intelligence, and Machine Learning </h1>
-            <hr class="hr-gold">
-            <h5 style="color: white; font-family: Baskervville; font-weight: bold;">Welcome! I
-                use this space to display my engineering projects along with information about myself for you
-                to get to know me better!</h5>
-            <br>
-            <i class="fas fa-chevron-down chevron intro-start"></i>
+
+            <div class="hero-visual" aria-hidden="true">
+                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="hArm" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#56a0ff"/>
+                            <stop offset="1" stop-color="#8b7cff"/>
+                        </linearGradient>
+                        <radialGradient id="hRad" cx="0.5" cy="0.5" r="0.5">
+                            <stop offset="0" stop-color="#56a0ff" stop-opacity="0.20"/>
+                            <stop offset="1" stop-color="#56a0ff" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+
+                    <!-- radar rings -->
+                    <g stroke="#56a0ff" stroke-opacity="0.16" fill="none">
+                        <circle cx="200" cy="200" r="150"/>
+                        <circle cx="200" cy="200" r="108"/>
+                        <circle cx="200" cy="200" r="66"/>
+                    </g>
+                    <circle cx="200" cy="200" r="150" fill="url(#hRad)"/>
+                    <g stroke="#ffffff" stroke-opacity="0.06">
+                        <line x1="50" y1="200" x2="350" y2="200"/>
+                        <line x1="200" y1="50" x2="200" y2="350"/>
+                    </g>
+
+                    <!-- sweeping radar arm -->
+                    <g>
+                        <line x1="200" y1="200" x2="200" y2="52" stroke="#35e0d0" stroke-opacity="0.5" stroke-width="2"/>
+                        <animateTransform attributeName="transform" type="rotate"
+                            from="0 200 200" to="360 200 200" dur="7s" repeatCount="indefinite"/>
+                    </g>
+
+                    <!-- dashed flight path + moving marker -->
+                    <path id="hPath" d="M70 300 C 150 300, 150 130, 240 130 S 330 260, 330 120"
+                        fill="none" stroke="#35e0d0" stroke-opacity="0.55" stroke-width="1.6" stroke-dasharray="4 6"/>
+                    <circle r="3.5" fill="#35e0d0">
+                        <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
+                            <mpath href="#hPath"/>
+                        </animateMotion>
+                    </circle>
+
+                    <!-- quadcopter -->
+                    <g transform="translate(200 200)">
+                        <g stroke="url(#hArm)" stroke-width="6" stroke-linecap="round">
+                            <line x1="0" y1="0" x2="-46" y2="-34"/>
+                            <line x1="0" y1="0" x2="46" y2="-34"/>
+                            <line x1="0" y1="0" x2="-46" y2="34"/>
+                            <line x1="0" y1="0" x2="46" y2="34"/>
+                        </g>
+                        <g fill="none" stroke="#56a0ff" stroke-opacity="0.6" stroke-width="2">
+                            <circle cx="-46" cy="-34" r="18"/>
+                            <circle cx="46" cy="-34" r="18"/>
+                            <circle cx="-46" cy="34" r="18"/>
+                            <circle cx="46" cy="34" r="18"/>
+                        </g>
+                        <g fill="#8b7cff">
+                            <circle cx="-46" cy="-34" r="4.5"/>
+                            <circle cx="46" cy="-34" r="4.5"/>
+                            <circle cx="-46" cy="34" r="4.5"/>
+                            <circle cx="46" cy="34" r="4.5"/>
+                        </g>
+                        <rect x="-20" y="-15" width="40" height="30" rx="7" fill="#0c1424" stroke="#56a0ff" stroke-width="2"/>
+                        <circle cx="0" cy="0" r="3" fill="#35e0d0"/>
+                        <path d="M0 -24 L5 -16 L-5 -16 Z" fill="#35e0d0"/>
+                    </g>
+                </svg>
+                <div class="hero-hud">◦ AUTONOMY · CV · GENAI &nbsp;|&nbsp; STATUS: NOMINAL</div>
+            </div>
         </div>
     </div>
-    <div class="overlay"></div>
-</div>
-<div id="about-section" class="background-grey" style="margin-top: -2rem; z-index: 2;">
-    <div class="container">
-        <div class="row" style="padding-top: 150px; padding-bottom: 150px; padding-left:15px; padding-right: 15px;">
-            <div class="col-md-6 text-center my-auto">
-                <div data-aos="fade-right">
-                    <img style="width: 280px; height: 390px; border-radius: 50px; margin-bottom: 50px; margin-left: auto; margin-right: auto"
-                        src="/assets/img/me.jpeg" alt="Me">
-                </div>
+    <a class="hero-scroll" href="#about" aria-label="Scroll down"><i class="fas fa-chevron-down"></i></a>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="section" id="about">
+    <div class="nk-wrap">
+        <div class="about-grid reveal">
+            <div class="about-photo">
+                <img src="/assets/img/me.jpeg" alt="Nolan Kurylo">
             </div>
-            <div class="col-md-6 text-left " data-aos="fade-left"  style="line-height: 35px;">
-                <h1 class="text-center"style="font-family: Baskervville; margin-bottom: 20px">A little about me</h1>
-                <hr class="hr-gold">
-                <p style="font-family: ABeeZee;"> I am a Software Engineer who has completed a Bachelor's
-                    Degree in Software Engineering from the University of Victoria, along with a specialization in Data Mining & Analysis,
-                    Machine Learning, and Artificial Intelligence. My passion lies in the innovation and development
-                    of Artificial Intelligence and Machine Learning applications. Growing up in Calgary, AB, I have had the 
-                    opportunity to live around Western Canada playing high-level hockey before attending university. Stick around to 
-                    learn a little bit more about me and some of the projects I have had the privilege of working on. 
-                </p>  
-            </div>
-        </div>
-    </div>
-</div>
-<div id="about" class="background-white">
-    <div class="container container-fluid" style="padding-bottom: 150px; padding-top: 150px;">
-        <div class="row">
-            <div class="col text-center">
-                <h1 class="title-text-dark">Curriculum Vitae</h1>
-                <hr class="hr-gold">
-                <br>
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <h2 class="title-text-dark">Education</h2><br>
-                        
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">University of Victoria</h5>
-
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Bachelor of Software Engineering (BSENG) - Software Engineering (Co-op) </h5>
-                        
-                    </div>
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <div class="text-muted" >
-                                Victoria, BC<br>
-                                September 2017 - August 2022<br>
-                                GPA: 3.9/4.0 (UVic scale: 8.31/9.00)<br><br>
-                        </div>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <div class="text-muted" style="font-family: ABeeZee;">
-                            In choosing engineering for my degree, not only have I
-                            obtained extensive knowledge through school, I have obtained valuable, real-world 
-                            experience through co-op work terms. Furthermore, university has allowed me to develop closer 
-                            to the person I have always desired to be.  
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>              
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">St Francis High School</h5>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">High School Diploma</h5>
-                    </div>
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <div class="text-muted" >
-                                Calgary, AB<br>
-                                September 2013 - June 2016<br>
-                                Honours With Distinction<br><br>
-                        </div>
-                        
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <div class="text-muted" style="font-family: ABeeZee;">
-                            In combination with playing junior hockey, high school helped me develop 
-                            the personality and many traits that I have today. During Grade 12, I learned to convert my work 
-                            ethic from hockey into my studies as well as various other areas of my life. Unfortunately for the NHL, 
-                            my passion is in Software Engineering, so I had to give up hockey.
-                            This helped improve my grades in high school and has carried through in my
-                            university GPA. 
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <hr>
-                <br>
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <h2 class="title-text-dark">Work Experience</h2><br>
-                        
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Valkyrie Intelligence</h5>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Senior Machine Learning Engineer</h5>
-                    </div>
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <div class="text-muted" >
-                                Austin, TX<br>
-                                December 2024 - Current<br><br>      
-                        </div>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <div class="text-muted" style="font-family: ABeeZee;">
-                            At Valkyrie Intelligence,
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Wood Mackenzie</h5>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Senior Data Science Software Engineer</h5>
-                        <h5 style="font-family: Raleway;">Data Science Software Engineer II</h5>
-                    </div>
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <div class="text-muted" >
-                                Houston, TX (Remote)<br>
-                                September 2022 - December 2024<br><br>      
-                        </div>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <div class="text-muted" style="font-family: ABeeZee;">
-                            In 2022, I joined Wood Mackenzie as a full-time Software Engineer. My primary duties were building machine learning models and processing Big Data for 
-                            an in-house web scraper application. Machine learning projects involved building, training, or fine-tuning computer vision, NLP, LLMs, 
-                            and classical models, depending on the use case. I worked on Big Data processing and engineering using PySpark on Databricks, helping process raw
-                            data to be published to clients.
-
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Salyx Medical</h5>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Machine Learning Engineer</h5>
-                    </div>
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <div class="text-muted" >
-                                Victoria, BC<br>
-                                January 2022 - August 2022<br><br>      
-                        </div>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <div class="text-muted" style="font-family: ABeeZee;">
-                            While completing my last few semesters of my BSEng degree, I eagerly joined Salyx Medical as a part-time employee
-                            to develop a cuffless blood pressure prediction model. This has required reading through academic research papers
-                            to learn the best way to approach the problem. A person's Photoplethysmography (PPG) signal was
-                            used to develop various beat-to-beat features that were eventually used as inputs to an RNN. I was able to optimize 
-                            the feature extraction and model training process to achieve an MAE of 3.8 and 2.9 for systolic and diastolic blood
-                            pressures respectively. These metrics allowed the company to meet the AAMI and BHS standards for a "Medical Grade A" device!
-
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Convergence Concepts Inc.</h5>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">AI/ML Engineering Co-op</h5>
-                    </div>
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <div class="text-muted" >
-                                Vancouver, BC<br>
-                                August 2021 - January 2022<br><br>      
-                        </div>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <div class="text-muted" style="font-family: ABeeZee;">
-                            With this being my fourth and final co-op, I was eager to find a job in the field I desire to start my
-                            career. This role was at a smaller company which enabled me to take on a larger 
-                            workload. Specifically, I spent much of my time working in machine learning, AI and DevOps tasks under minimal supervision. 
-                            I quickly learned how to develop an
-                            end-to-end machine learning application that involved acquisition of data, exploratory data analysis, 
-                            data cleaning, preprocessing, model training and deployment on AWS. This project was a content 
-                            classification system, for recognizing relevant information on a webpage. I used TensorFlow to construct a multi-input 
-                            neural network with a text embedding layer and a text NLP layer that required fine-tuning a BERT 
-                            transformer from HuggingFace. I was able to learn how to build an end-to-end machine learning application in combination with
-                            transfer learning. I learned how big of a problem data collection and tagging is in supervised learning. This led me
-                            to understand how to optimize deep neural networks for the problem at hand.
-             
-
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Inventu Reaserch Inc.</h5>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Software Engineering Team Lead</h5>
-                    </div>
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <div class="text-muted" >
-                                Victoria, BC<br>
-                                September 2020 - September 2021<br>
-                        </div>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <div class="text-muted" style="font-family: ABeeZee;">
-                            This role was a continuation of my 3rd co-op as an Embedded and Software Engineer where
-                            I was promoted to leading the web development, mobile app and embedded engineering teams on a part-time basis. This role
-                            was focused around guiding the teams towards completing new tasks and achieving their milestones.
-                            Incidentally, I was the go-to person for answering code-related and project-related questions. I quickly
-                            learned how to lead weekly Kanban meetings, discussing project needs as well as developer needs. With this role
-                            being part time, I was more involved in the management of people and projects than developing code.
-
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Ergonomyx Technologies Canada</h5>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Embedded Software Engineer Co-op</h5>
-                    </div>
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <div class="text-muted" >
-                                Victoria, BC<br>
-                                May 2020 - September 2020<br><br>      
-                        </div>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <div class="text-muted" style="font-family: ABeeZee;">
-                            This role has revolved around programming and soldering the PCB's for the company's desk and bike products.
-                            Using C++, I have had the opportunity to program various peripherals such as Servo and PWM motors, capacitive touch sensors,
-                            and accelerometers. Programming the PCB's have allowed me to better understand UART and I2C 
-                            protocols, programming in a memory-constrained environment, and constructing Bluetooth and WiFi connections to the
-                            IOS and Android applications.
-
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>              
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Ergonomyx Technologies Canada</h5>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Full Stack Web Developer Co-op</h5>
-                    </div>
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <div class="text-muted" >
-                                Victoria, BC<br>
-                                January 2019 - September 2019<br><br>
-                            
-                        </div>
-                        
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <div class="text-muted" style="font-family: ABeeZee;">
-                            From the ground up, I designed, implemented, and tested a full stack e-commerce website to market 
-                            the company's products. This included an HTML/Python front-end, a Node.js API and a Postgresql database.
-                            With this being my first engineering co-op, I had to overcome a difficult learning curve given the size of
-                            the project I was assigned with. After obtaining the necessary knowledge, this role helped me fall in love with
-                            programming. I obtained extensive experience writing API endpoints and SQL queries to a relational database.
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <hr>
-                <br>
-                <div class="row">
-                    <div class="col-md-5 col-sm-12 text-left">
-                        <h2 class="title-text-dark">Personal Development</h2><br>
-                        
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">KIJHL</h5>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Kimberley Dynamiters</h5>
-                    </div>
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <div class="text-muted" >
-                                Kimberley, BC<br>
-                                November 2016 - April 2017<br><br>     
-                        </div>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <div class="text-muted" style="font-family: ABeeZee;">
-                            Knowing that I wanted to go to university for engineering the next fall, I wanted 
-                            to leave the game of hockey on the best note I that could. I decided to go play for a team 
-                            that I heard many excellent things about - and that was arguably 
-                            the best decision I ever made in my hockey career. 
-
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>              
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">AJHL</h5>
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <h5 style="font-family: Raleway;">Canmore Eagles</h5>
-                    </div>
-                    <div class="col-md-3 col-sm-12 text-left">
-                        <div class="text-muted" >
-                                Canmore, AB<br>
-                                September 2015 - November 2016<br><br>
-                            
-                        </div>
-                        
-                    </div>
-                    <div class="col-md-9 col-sm-12 text-left">
-                        <div class="text-muted" style="font-family: ABeeZee;">
-                            This was my first experience playing junior hockey and did it ever teach me a lot.
-                            After learning how to play in this business-first type of league, it didn't end up being
-                            something I wanted to pursue. However, the relationships I developed while playing for teams
-                            such as Canmore are still relevant in my life today. I still see my loving billet family from Canmore
-                            as well as many of my past teammates.  
-                        </div>
-                    </div>
+            <div class="about-copy">
+                <span class="eyebrow">About</span>
+                <p>
+                    I'm a software engineer turned <strong>machine learning &amp; avionics engineer</strong> who likes
+                    building systems that leave the lab and operate in the real world. I hold a Bachelor of Software
+                    Engineering from the <strong>University of Victoria</strong> with a specialization in Data Mining,
+                    Machine Learning &amp; AI.
+                </p>
+                <p>
+                    After several years shipping <strong>production ML and data platforms</strong>, my focus is now
+                    <strong>autonomous flight</strong> — flight software, obstacle-avoidance control laws, and the
+                    sensor/compute stack behind them. I work end to end: from bringing up a
+                    <a href="/projects/drone-fc/">bare STM32 flight controller on ArduPilot</a> to deep-learning models
+                    and the cloud pipelines that feed them.
+                </p>
+                <p>
+                    Originally from Calgary, I spent my early years playing high-level junior hockey — where I picked
+                    up the discipline and team-first mindset I still bring to engineering every day.
+                </p>
+                <div class="about-facts">
+                    <div class="fact"><div class="n">5+</div><div class="l">yrs shipping ML</div></div>
+                    <div class="fact"><div class="n">3.9</div><div class="l">GPA · BSEng</div></div>
+                    <div class="fact"><div class="n">AWS</div><div class="l">Cloud Practitioner</div></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="background-grey">
-    <div class="container container-fluid" style="padding-bottom: 150px; padding-top: 150px; ">
-        <h1 class="title-text-dark text-center">
-            Some of my projects</h1>
-        <hr class="hr-gold">
-        <h6 class="text-center text-dark" style="padding-bottom: 100px; line-height: 30px"> Over the course of my
-            degree, I have had the opportunity work on various engineering projects that have encouraged me to further my
-            extracurricular development. With a range of experience in web development, embedded systems and machine learning,
-            I have begun to narrow down a field of interest for which I plan to start my career in. This interest revolves around
-            machine learning and artificial intelligence based applications.
-        </h6>
+</section>
 
+<!-- ============================ EXPERIENCE ============================ -->
+<section class="section section-tight" id="experience">
+    <div class="nk-wrap">
+        <div class="sec-head reveal">
+            <span class="eyebrow">Experience</span>
+            <h2>Where I've been building</h2>
+            <p>A track record across machine learning, data engineering and embedded systems — most recently focused on autonomous flight.</p>
+        </div>
 
-        
+        <div class="timeline">
+            <div class="xp current reveal">
+                <div class="xp-top">
+                    <span class="xp-role">Senior Machine Learning Engineer</span>
+                    <span>·</span>
+                    <span class="xp-co">Valkyrie</span>
+                    <span class="xp-badge">Current</span>
+                </div>
+                <div class="xp-meta">Austin, TX · Dec 2024 – Present</div>
+                <p class="xp-desc">
+                    I drive hands-on avionics and autonomy development on an
+                    <a href="/projects/evtol-testbed/" style="color:var(--text);border-bottom:1px solid var(--accent)">eVTOL R&amp;D program</a>
+                    — selecting the hardware, wiring an
+                    <strong style="color:var(--text)">autopilot + NVIDIA Jetson Orin</strong> flight stack over MAVLink,
+                    and building a <strong style="color:var(--text)">three-layer autonomous obstacle-avoidance system</strong>
+                    (a physics-based velocity governor over an ArduPilot safety core) for a drone testbed designed to scale
+                    to a full-size aircraft. Alongside the flight work I ship production data and cloud systems: a Databricks
+                    change-data-capture ETL pipeline, a serverless AWS Lambda that drafts weekly project status via the
+                    Claude API, and AWS governance standards for shared environments.
+                </p>
+                <div class="xp-chips">
+                    <span class="chip">Avionics</span>
+                    <span class="chip">ArduPilot</span>
+                    <span class="chip">Pixhawk · Jetson Orin</span>
+                    <span class="chip">MAVLink</span>
+                    <span class="chip">Computer Vision</span>
+                    <span class="chip">AWS Lambda</span>
+                    <span class="chip">Databricks</span>
+                    <span class="chip">Claude API</span>
+                </div>
+            </div>
 
-        <div class="row">
-            <div class="col-lg-4 col-md-12 text-center">
-                <div data-aos="fade-up" class="image-overlay-container">
-                    <img src="/assets/img/duck-hunt.jpg" alt="Ergo Desk" class="image-overlay"
-                    style="height:100%; width:100%">
-                    <div class="inner-overlay"></div>
-                    <div class="text-overlay">
-                        <div class="overlay-header">
-                            <h3 class="title-text-white">Duck Hunt AI</h3>
-                        </div>
-                        <div class="overlay-text">
-                            <p class="text-white">
-                                A Computer Vision application that uses Transfer Learning to solve the famous "Duck Hunt"
-                            shooter game. Python Implementation and Research Paper.
-                            </p>
-                        </div>
-                        <a class="button-square" href="/projects/duck-hunt-ai"
-                            style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                            PROJECT</a>
-                    </div>
+            <div class="xp reveal">
+                <div class="xp-top">
+                    <span class="xp-role">Senior Data Science Software Engineer</span>
+                    <span>·</span>
+                    <span class="xp-co">Wood Mackenzie</span>
+                </div>
+                <div class="xp-meta">Houston, TX (Remote) · Sep 2022 – Dec 2024 · promoted from Data Science SW Engineer II</div>
+                <p class="xp-desc">
+                    Helped lead a global team building a cloud-based, AI-powered web-scraping platform. Built an OCR
+                    table-detection model reaching <strong style="color:var(--text)">95% accuracy</strong>, engineered
+                    scraping optimizations delivering <strong style="color:var(--text)">25–50× speedups</strong>, designed
+                    an ML scheduling algorithm that cut cloud costs <strong style="color:var(--text)">~20%</strong>, and
+                    shipped NLP deduplication that reduced published table sizes <strong style="color:var(--text)">60%</strong>.
+                    Big-data processing ran on PySpark / Databricks.
+                </p>
+                <div class="xp-chips">
+                    <span class="chip">Computer Vision / OCR</span>
+                    <span class="chip">NLP &amp; LLMs</span>
+                    <span class="chip">PySpark</span>
+                    <span class="chip">Databricks</span>
+                    <span class="chip">AWS</span>
+                </div>
+            </div>
 
-                    
-                    
+            <div class="xp reveal">
+                <div class="xp-top">
+                    <span class="xp-role">Machine Learning Engineer</span>
+                    <span>·</span>
+                    <span class="xp-co">Salyx Medical</span>
                 </div>
-                
-            </div>
-            <div class="col-lg-4 col-md-12 text-center" style="margin-bottom: 75px; margin-top: 75px;">
-                <div data-aos="fade-up" class="image-overlay-container">
-                    <img src="/assets/img/blackboard.jpg" alt="AI MNIST Pipeline" class="image-overlay"
-                        style="max-height: 600px; width:100%">
-                    <div class="inner-overlay"></div>
-                    <div class="text-overlay">
-                        <div class="overlay-header">
-                            <h3 class="title-text-white">AI MNIST Pipeline</h3>
-                        </div>
-                        <div class="overlay-text">
-                            <p class="text-white">An end-to-end Machine Learning application with a deployed frontend for user usage.
-                                Using Python, TensorFlow, and AWS Lambda & S3 Buckets.
-                            </p>
-                        </div>
-                        <a class="button-square" href="/projects/ai-mnist-pipeline/"
-                            style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">TRY OUT THE
-                            AI</a>
-                    </div>
+                <div class="xp-meta">Victoria, BC · Jan 2022 – Aug 2022</div>
+                <p class="xp-desc">
+                    Developed a cuffless blood-pressure prediction model from photoplethysmography (PPG) signals,
+                    engineering beat-to-beat features into an RNN. Achieved MAE of 3.8 / 2.9 mmHg (systolic / diastolic) —
+                    meeting the AAMI and BHS standards for a "Medical Grade A" device.
+                </p>
+                <div class="xp-chips">
+                    <span class="chip">RNN</span>
+                    <span class="chip">Signal Processing</span>
+                    <span class="chip">Python</span>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12 text-center" style="margin-bottom: 75px;">
-                <div data-aos="fade-up" class="image-overlay-container">
-                    <img src="/assets/img/aws-square.jpg" alt="Mobile Apps" class="image-overlay"
-                    style="max-height: 600px; width:100%">
-                    <div class="inner-overlay"></div>
-                    <div class="text-overlay">
-                        <div class="overlay-header">
-                            <h3 class="title-text-white">AWS Day Trading System</h3>
-                        </div>
-                        <div class="overlay-text">
-                            <p class="text-white">A distributed system that uses load balancing, horizontal and vertical scaling
-                                on AWS. Consists of a client, console, stock/quote server and relational database.
-                            </p>
-                        </div>
-                        <a class="button-square" href="/projects/day-trading-system"
-                            style="text-decoration: none !important; font-family: ABeeZee !important; color: white !important;">VIEW
-                            PROJECT</a>
-                    </div>
+
+            <div class="xp reveal">
+                <div class="xp-top">
+                    <span class="xp-role">AI / ML Engineering Co-op</span>
+                    <span>·</span>
+                    <span class="xp-co">Convergence Concepts</span>
+                </div>
+                <div class="xp-meta">Vancouver, BC · Aug 2021 – Jan 2022</div>
+                <p class="xp-desc">
+                    Built an end-to-end content-classification system — data acquisition through deployment on AWS —
+                    using a multi-input TensorFlow neural network with a fine-tuned BERT transformer for webpage
+                    understanding.
+                </p>
+                <div class="xp-chips">
+                    <span class="chip">TensorFlow</span>
+                    <span class="chip">BERT / NLP</span>
+                    <span class="chip">AWS</span>
                 </div>
             </div>
-        </div>
-        <div class="row ">
-            <div class="col text-center">
-                <div class="button-square-2" onclick="window.location.href = '/projects/'">
-                    <a class="a-tag" href="/projects/"
-                        style="text-decoration: none !important; font-family: ABeeZee !important; color: #292929">VIEW ALL PROJECTS <i
-                            style="color: #292929;" class="fas fa-arrow-right"></i></a>
+
+            <div class="xp reveal">
+                <div class="xp-top">
+                    <span class="xp-role">Embedded &amp; Full-Stack Engineer</span>
+                    <span>·</span>
+                    <span class="xp-co">Ergonomyx &amp; Inventu Research</span>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="about" class="background-white" style="margin-bottom: 150px;">
-    <div class="container container-fluid" style="padding-bottom: 50px; padding-top: 150px;">
-        <div class="row">
-            <div class="col text-center">
-                <h1 class="title-text-dark">Interests</h1>
-                <hr class="hr-gold">
-                <br>
-            </div>
-        </div>
-    </div>
-    <div class="section-container interest-food">
-        <div class="section-one">
-            <div class="content"><img src="/assets/img/food-icon.png" width="200" height="150px" alt="Food"></div>
-        </div>
-        <div class="section-two">
-            <div class="content">
-                <div class="content-text text-dark">
-                    Throughout University, I have had my share of adversity and the anxiety that comes with it. Along with working out,
-                    I have found a way to relieve stress through cooking at the end of the day. I find it rewarding to
-                    spend time making a delicious meal. On top of that, making food allows me to get out of my own head 
-                    and any stress weighing me down from the day.
+                <div class="xp-meta">Victoria, BC · 2019 – 2021</div>
+                <p class="xp-desc">
+                    Wrote C++ firmware for PCB-based products — driving motors, sensors and accelerometers over UART/I2C
+                    with Bluetooth/WiFi connectivity — and built a full-stack e-commerce platform. Later led the web,
+                    mobile and embedded teams as a Software Engineering Team Lead, running weekly Kanban planning.
+                </p>
+                <div class="xp-chips">
+                    <span class="chip">C / C++ Firmware</span>
+                    <span class="chip">Embedded Systems</span>
+                    <span class="chip">Node.js</span>
+                    <span class="chip">Team Lead</span>
                 </div>
             </div>
         </div>
     </div>
-    
-    <div class="section-container interest-hockey">
-        <div class="section-one">
-            <div class="content"><img src="/assets/img/hockey-icon.png" width="150" height="150px" alt="Hockey"></div>
+</section>
+
+<!-- ============================ SKILLS ============================ -->
+<section class="section section-tight" id="skills">
+    <div class="nk-wrap">
+        <div class="sec-head reveal">
+            <span class="eyebrow">Toolkit</span>
+            <h2>What I build with</h2>
         </div>
-        <div class="section-two">
-            <div class="content">
-                <div class="content-text text-dark">
-                    For the first 20 years of my life, I played various different sports. These included golf, football, 
-                    soccer, but mainly hockey. While I had the chance to play the sports that I loved, I also learned a lot. Over the course
-                    of playing for many teams I developed excellent interpersonal skills, respect for others and how to work in
-                    a group setting. While I no longer play competitively, I still invest extracurricular time in intramural sports such
-                    as hockey, squash and tennis, along with keeping up to date with professional hockey through fantasy leagues.
-                </div>   
+        <div class="skills-grid">
+            <div class="skill-card reveal">
+                <div class="ic"><i class="fas fa-satellite-dish"></i></div>
+                <h4>Avionics &amp; Autonomy</h4>
+                <ul>
+                    <li>ArduPilot · PX4</li>
+                    <li>Pixhawk · Jetson Orin</li>
+                    <li>MAVLink · STM32</li>
+                    <li>Obstacle Avoidance</li>
+                    <li>Sensor Fusion</li>
+                </ul>
+            </div>
+            <div class="skill-card reveal">
+                <div class="ic"><i class="fas fa-brain"></i></div>
+                <h4>Machine Learning &amp; AI</h4>
+                <ul>
+                    <li>Computer Vision</li>
+                    <li>LLMs · RAG · Claude API</li>
+                    <li>NLP</li>
+                    <li>Time-Series Forecasting</li>
+                    <li>PyTorch · TensorFlow</li>
+                </ul>
+            </div>
+            <div class="skill-card reveal">
+                <div class="ic"><i class="fas fa-cloud"></i></div>
+                <h4>Cloud &amp; Data</h4>
+                <ul>
+                    <li>AWS (Certified)</li>
+                    <li>Databricks · PySpark</li>
+                    <li>Lambda · CloudFormation</li>
+                    <li>ETL · CDC · Delta Lake</li>
+                </ul>
+            </div>
+            <div class="skill-card reveal">
+                <div class="ic"><i class="fas fa-code"></i></div>
+                <h4>Languages</h4>
+                <ul>
+                    <li>Python</li>
+                    <li>C / C++</li>
+                    <li>JavaScript / TypeScript</li>
+                    <li>SQL</li>
+                </ul>
             </div>
         </div>
     </div>
-    <div class="section-container interest-projects">
-        <div class="section-one">
-            <div class="content"><img src="/assets/img/projects-icon.png" width="150" height="150px" alt="Projects"></div>
+</section>
+
+<!-- ============================ FEATURED PROJECTS ============================ -->
+<section class="section section-tight" id="projects">
+    <div class="nk-wrap">
+        <div class="sec-head reveal">
+            <span class="eyebrow">Selected work</span>
+            <h2>Featured projects</h2>
+            <p>A few things I've built — from a from-scratch drone flight controller to computer-vision systems.</p>
         </div>
-        <div class="section-two">
-            <div class="content">
-                <div class="content-text text-dark">I have always been adamant about school, work and the projects I undertake.
-                    While I have obtained excellent experience from both university and my co-op work terms, I strive for continuous
-                    learning on my own. I am passionate about creating and designing the software and hardware for cool ideas I have or come
-                    across online. Learning and getting better comes a bit easier when it's something you love. Go check out my 
-                    <a  href="/projects/">projects</a> page to see what I mean!
+
+        <div class="proj-grid feat">
+            <a class="pcard reveal" href="/projects/evtol-testbed/">
+                <div class="pcard-media svg-media">
+                    <span class="pcard-tag">eVTOL · Autonomy</span>
+                    <img src="/assets/img/evtol-testbed.svg" alt="Autonomous eVTOL flight testbed">
                 </div>
+                <div class="pcard-body">
+                    <h3>Autonomous eVTOL Flight Testbed</h3>
+                    <p>Hands-on avionics &amp; autonomy on a work eVTOL R&amp;D program: an autopilot + Jetson&nbsp;Orin flight stack and a three-layer obstacle-avoidance system with a physics-based velocity governor.</p>
+                    <div class="pcard-stack"><span>Autopilot</span><span>Jetson Orin</span><span>ArduPilot</span><span>MAVLink</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+
+            <a class="pcard reveal" href="/projects/drone-fc/">
+                <div class="pcard-media svg-media">
+                    <span class="pcard-tag">Avionics / Embedded</span>
+                    <img src="/assets/img/drone-fc.svg" alt="Custom STM32 flight controller">
+                </div>
+                <div class="pcard-body">
+                    <h3>Custom STM32 Flight Controller</h3>
+                    <p>A quadcopter built from the flight controller up — a bare STM32H743 running ArduPilot with a hand-authored <code>hwdef</code>, bringing up IMU, baro, radio and ESCs myself.</p>
+                    <div class="pcard-stack"><span>STM32H743</span><span>ArduPilot</span><span>hwdef.dat</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+
+            <a class="pcard reveal" href="/projects/duck-hunt-ai/">
+                <div class="pcard-media">
+                    <span class="pcard-tag">Computer Vision</span>
+                    <img src="/assets/img/duck-hunt.jpg" alt="Duck Hunt AI">
+                </div>
+                <div class="pcard-body">
+                    <h3>Duck Hunt AI</h3>
+                    <p>A computer-vision agent that plays Duck Hunt, fine-tuning YOLOv5 and SSD detectors via transfer learning for high mAP at real-time speeds.</p>
+                    <div class="pcard-stack"><span>YOLOv5</span><span>Transfer Learning</span><span>Python</span></div>
+                    <span class="pcard-link">View project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+        </div>
+
+        <div class="view-all">
+            <a class="btn-nk btn-ghost-nk" href="/projects">View all projects <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ CONTACT CTA ============================ -->
+<section class="section section-tight" id="contact-cta">
+    <div class="nk-wrap">
+        <div class="cta reveal">
+            <span class="eyebrow" style="justify-content:center;color:var(--accent-2)">
+                <span style="width:8px;height:8px;border-radius:50%;background:#35e0d0;box-shadow:0 0 10px #35e0d0;"></span>
+                Open to new opportunities
+            </span>
+            <h2>Let's build what flies next.</h2>
+            <p>I'm exploring new roles in machine learning, autonomy and aviation. If you're working on something ambitious in the air, I'd love to talk.</p>
+            <div class="cta-actions">
+                <a class="btn-nk btn-primary-nk" href="mailto:kurylon@telus.net"><i class="fas fa-envelope"></i> Get in touch</a>
+                <a class="btn-nk btn-ghost-nk" href="https://www.linkedin.com/in/nolan-kurylo/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
             </div>
         </div>
     </div>
-</div>
+</section>

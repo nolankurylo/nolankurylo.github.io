@@ -14,40 +14,37 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="generator" content="Jekyll v4.0.0" />
-        <meta property="og:title" content="Nolan Kurylo's Website" />
-        <meta property="og:locale" content="en_US" />
+        <meta name="author" content="Nolan Kurylo" />
+        <meta name="theme-color" content="#080b12" />
         <meta name="description"
-            content="This is my personal website that outlines my projects and experiences as a Software Engineering Student, hosted on Github." />
+            content="Nolan Kurylo — Senior Machine Learning Engineer in Austin, TX building AI for drones, aviation and autonomous systems. Computer vision, GenAI/LLM tooling, and autonomy." />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Nolan Kurylo — ML Engineer · Drones, Aviation & Autonomy" />
+        <meta property="og:locale" content="en_US" />
         <meta property="og:description"
-            content="This is my personal website that outlines my projects and experiences as a Software Engineering Student, hosted on Github." />
-        <meta property="og:url" content="http://localhost:4000/" />
-        <meta property="og:site_name" content="Nolan Kurylo's Website" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+            content="Senior Machine Learning Engineer building AI for drones, aviation and autonomous systems — computer vision, GenAI/LLM tooling, and autonomy." />
+        <meta property="og:url" content="https://nolankurylo.github.io/" />
+        <meta property="og:site_name" content="Nolan Kurylo" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Nolan</title>
+        <title>Nolan Kurylo — ML Engineer · Drones, Aviation & Autonomy</title>
 
-        <link rel="canonical" href="http://localhost:4000/" />
+        <link rel="canonical" href="https://nolankurylo.github.io/" />
         <!--Bootstrap CSS from CDN-->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- Font aweseme -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
             integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-            
-        <!-- AOS Scroll -->
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <!--Local style sheets-->
-        
+
         <link rel="shortcut icon" type="image/jpg" href="/assets/img/favicon.png">
         <!-- Fonts -->
-        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
-        <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
-        <link href='https://fonts.googleapis.com/css?family=Baskervville' rel='stylesheet'>
-        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
         <link rel="stylesheet" href="/assets/css/index.css">
-        <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml"
-            title="Nolan" /> 
-            <!-- Not sure what this is -->
+        <link rel="stylesheet" href="/assets/css/refresh.css">
     </head>
 
     <body>
@@ -62,16 +59,22 @@
             </div>
             {% include footer.html %}
         </div>
-        
+
         <!-- Scripts -->
         <script type="application/ld+json">
             {
-                "headline": "Nolan Kurylo's Website",
-                "url": "http://localhost:4000/",
-                "name": "Nolan Kurylo's Website",
-                "description": "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.",
-                "@type": "WebSite",
-                "@context": "https://schema.org"
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Nolan Kurylo",
+                "url": "https://nolankurylo.github.io/",
+                "jobTitle": "Senior Machine Learning Engineer",
+                "worksFor": { "@type": "Organization", "name": "Valkyrie" },
+                "address": { "@type": "PostalAddress", "addressLocality": "Austin", "addressRegion": "TX" },
+                "sameAs": [
+                    "https://www.linkedin.com/in/nolan-kurylo/",
+                    "https://github.com/nolankurylo"
+                ],
+                "knowsAbout": ["Machine Learning", "Computer Vision", "Drones", "Aviation", "Autonomy", "Large Language Models"]
             }
         </script>
         <!-- JQuery -->
@@ -81,24 +84,28 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
         </script>
-        <!-- AOS Scroll -->
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.5/vivus.js"
-            integrity="sha256-zlFKFKXo7cO6EPdEyBv1ypBnmXO7rs9CytPGAb0hRDE=" crossorigin="anonymous"></script>
 
         <!-- Local JavaScripts -->
         <script src="/assets/js/index.js"></script>
         <script src="/assets/js/ai-mnist-pipeline.js"></script>
         <script src="//instant.page/3.0.0" type="module" defer
             integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+        <!-- Lightweight scroll reveal (replaces AOS) -->
         <script>
-            const myVivus = new Vivus('my-svg', {
-                file: "/assets/img/nolankurylo.svg",
-                start: 'manual',
-                onReady() {
-                    myVivus.play(0.05);
+            (function () {
+                var els = document.querySelectorAll('.reveal');
+                if (!('IntersectionObserver' in window) || !els.length) {
+                    els.forEach(function (el) { el.classList.add('in'); });
+                    return;
                 }
-            });
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+                els.forEach(function (el) { io.observe(el); });
+            })();
         </script>
     </body>
 

@@ -1,1 +1,1 @@
-This is my personal website that outlines my projects and experiences as a Software Engineering Student, hosted on Github. Website can be found at: https://nolankurylo.github.io/
+Personal website of Nolan Kurylo — Senior Machine Learning Engineer working on drones, aviation and autonomy. Hosted on GitHub Pages at: https://nolankurylo.github.io/

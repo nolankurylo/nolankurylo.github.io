@@ -21,7 +21,8 @@
 title: Nolan Kurylo
 email: kurylon@telus.net
 description: >- # this means to ignore newlines until "baseurl:"
-  This is my personal website that outlines my projects and experiences as a Software Engineering Student, hosted on Github.
+  Nolan Kurylo — Senior Machine Learning Engineer in Austin, TX, building AI for drones,
+  aviation and autonomous systems: computer vision, GenAI/LLM tooling, and autonomy.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://nolankurylo.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
