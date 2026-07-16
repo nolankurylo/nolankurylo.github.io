@@ -13,9 +13,17 @@ permalink: /projects/
                 learning, embedded systems and full-stack development — grouped by field.</p>
         </div>
 
+        <div class="filter-bar reveal" aria-label="Filter projects">
+            <button type="button" class="fbtn active" data-filter="all">All</button>
+            <button type="button" class="fbtn" data-filter="drones">Drones &amp; Autonomy</button>
+            <button type="button" class="fbtn" data-filter="ml">AI / ML</button>
+            <button type="button" class="fbtn" data-filter="embedded">Embedded</button>
+            <button type="button" class="fbtn" data-filter="web">Cloud / Web</button>
+        </div>
+
         <!-- Drones & Autonomy -->
-        <h3 style="font-family:var(--font-head);font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2);margin:0 0 22px;">Drones &amp; Autonomy</h3>
-        <div class="proj-grid" style="margin-bottom:64px;">
+        <h3 class="cat-head" data-cat="drones" style="font-family:var(--font-head);font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2);margin:0 0 22px;">Drones &amp; Autonomy</h3>
+        <div class="proj-grid" data-cat="drones" style="margin-bottom:64px;">
             <a class="pcard reveal" href="/projects/evtol-testbed/">
                 <div class="pcard-media svg-media">
                     <span class="pcard-tag">eVTOL · Autonomy</span>
@@ -43,8 +51,8 @@ permalink: /projects/
         </div>
 
         <!-- AI / ML -->
-        <h3 style="font-family:var(--font-head);font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2);margin:0 0 22px;">Artificial Intelligence / Machine Learning</h3>
-        <div class="proj-grid" style="margin-bottom:64px;">
+        <h3 class="cat-head" data-cat="ml" style="font-family:var(--font-head);font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2);margin:0 0 22px;">Artificial Intelligence / Machine Learning</h3>
+        <div class="proj-grid" data-cat="ml" style="margin-bottom:64px;">
             <a class="pcard reveal" href="/projects/duck-hunt-ai/">
                 <div class="pcard-media">
                     <span class="pcard-tag">Computer Vision</span>
@@ -84,8 +92,8 @@ permalink: /projects/
         </div>
 
         <!-- Embedded -->
-        <h3 style="font-family:var(--font-head);font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2);margin:0 0 22px;">Embedded Systems</h3>
-        <div class="proj-grid" style="margin-bottom:64px;">
+        <h3 class="cat-head" data-cat="embedded" style="font-family:var(--font-head);font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2);margin:0 0 22px;">Embedded Systems</h3>
+        <div class="proj-grid" data-cat="embedded" style="margin-bottom:64px;">
             <a class="pcard reveal" href="/projects/dds">
                 <div class="pcard-media">
                     <span class="pcard-tag">RTOS</span>
@@ -197,8 +205,8 @@ permalink: /projects/
         </div>
 
         <!-- Cloud / Web / App -->
-        <h3 style="font-family:var(--font-head);font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2);margin:0 0 22px;">Cloud Computing / Web / App Development</h3>
-        <div class="proj-grid">
+        <h3 class="cat-head" data-cat="web" style="font-family:var(--font-head);font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-2);margin:0 0 22px;">Cloud Computing / Web / App Development</h3>
+        <div class="proj-grid" data-cat="web">
             <a class="pcard reveal" href="/projects/day-trading-system">
                 <div class="pcard-media">
                     <span class="pcard-tag">Distributed Systems</span>
@@ -238,3 +246,20 @@ permalink: /projects/
         </div>
     </div>
 </section>
+
+<script>
+(function () {
+    var btns = document.querySelectorAll('.fbtn');
+    var sections = document.querySelectorAll('[data-cat]');
+    btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+            btns.forEach(function (o) { o.classList.remove('active'); });
+            b.classList.add('active');
+            var f = b.getAttribute('data-filter');
+            sections.forEach(function (el) {
+                el.style.display = (f === 'all' || el.getAttribute('data-cat') === f) ? '' : 'none';
+            });
+        });
+    });
+})();
+</script>

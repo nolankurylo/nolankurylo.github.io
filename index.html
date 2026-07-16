@@ -9,7 +9,7 @@ active: index
         <div class="hero-grid">
             <div class="hero-copy">
                 <span class="eyebrow">Senior Machine Learning Engineer · Austin, TX</span>
-                <h1>Engineering AI for<br><span class="grad">drones, aviation &amp; autonomy.</span></h1>
+                <h1>Engineering intelligent<br><span class="grad">software, robotics &amp; avionics.</span></h1>
                 <p class="hero-lead">
                     I'm Nolan Kurylo — a hands-on machine learning engineer working across
                     <strong style="color:var(--text)">avionics, autonomy and applied ML</strong>. At
@@ -31,7 +31,7 @@ active: index
             </div>
 
             <div class="hero-visual" aria-hidden="true">
-                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <svg id="hero-radar" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="hArm" x1="0" y1="0" x2="1" y2="1">
                             <stop offset="0" stop-color="#56a0ff"/>
@@ -62,6 +62,31 @@ active: index
                             from="0 200 200" to="360 200 200" dur="7s" repeatCount="indefinite"/>
                     </g>
 
+                    <!-- radar contacts: pulse as the sweep passes (7s period, phase-offset) -->
+                    <g>
+                        <circle cx="304" cy="140" r="3" fill="#35e0d0" opacity="0">
+                            <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.18;0.42;1" dur="7s" begin="-5.833s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="304" cy="140" r="3" fill="none" stroke="#35e0d0" stroke-width="1.5" opacity="0">
+                            <animate attributeName="r" values="3;20;20" keyTimes="0;0.18;1" dur="7s" begin="-5.833s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.8;0;0" keyTimes="0;0.18;1" dur="7s" begin="-5.833s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="215" cy="284" r="3" fill="#8b7cff" opacity="0">
+                            <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.18;0.42;1" dur="7s" begin="-3.694s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="215" cy="284" r="3" fill="none" stroke="#8b7cff" stroke-width="1.5" opacity="0">
+                            <animate attributeName="r" values="3;20;20" keyTimes="0;0.18;1" dur="7s" begin="-3.694s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.8;0;0" keyTimes="0;0.18;1" dur="7s" begin="-3.694s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="67" cy="177" r="3" fill="#56a0ff" opacity="0">
+                            <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.18;0.42;1" dur="7s" begin="-1.556s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="67" cy="177" r="3" fill="none" stroke="#56a0ff" stroke-width="1.5" opacity="0">
+                            <animate attributeName="r" values="3;20;20" keyTimes="0;0.18;1" dur="7s" begin="-1.556s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.8;0;0" keyTimes="0;0.18;1" dur="7s" begin="-1.556s" repeatCount="indefinite"/>
+                        </circle>
+                    </g>
+
                     <!-- dashed flight path + moving marker -->
                     <path id="hPath" d="M70 300 C 150 300, 150 130, 240 130 S 330 260, 330 120"
                         fill="none" stroke="#35e0d0" stroke-opacity="0.55" stroke-width="1.6" stroke-dasharray="4 6"/>
@@ -85,6 +110,33 @@ active: index
                             <circle cx="-46" cy="34" r="18"/>
                             <circle cx="46" cy="34" r="18"/>
                         </g>
+                        <!-- spinning rotor blades (counter-rotating pairs, like a real quad) -->
+                        <g stroke="#aecbff" stroke-width="2" stroke-linecap="round" opacity="0.85">
+                            <g transform="translate(-46 -34)">
+                                <g>
+                                    <line x1="-13" y1="0" x2="13" y2="0"/><line x1="0" y1="-13" x2="0" y2="13"/>
+                                    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.65s" repeatCount="indefinite"/>
+                                </g>
+                            </g>
+                            <g transform="translate(46 -34)">
+                                <g>
+                                    <line x1="-13" y1="0" x2="13" y2="0"/><line x1="0" y1="-13" x2="0" y2="13"/>
+                                    <animateTransform attributeName="transform" type="rotate" from="45" to="-315" dur="0.6s" repeatCount="indefinite"/>
+                                </g>
+                            </g>
+                            <g transform="translate(-46 34)">
+                                <g>
+                                    <line x1="-13" y1="0" x2="13" y2="0"/><line x1="0" y1="-13" x2="0" y2="13"/>
+                                    <animateTransform attributeName="transform" type="rotate" from="20" to="-340" dur="0.6s" repeatCount="indefinite"/>
+                                </g>
+                            </g>
+                            <g transform="translate(46 34)">
+                                <g>
+                                    <line x1="-13" y1="0" x2="13" y2="0"/><line x1="0" y1="-13" x2="0" y2="13"/>
+                                    <animateTransform attributeName="transform" type="rotate" from="65" to="425" dur="0.65s" repeatCount="indefinite"/>
+                                </g>
+                            </g>
+                        </g>
                         <g fill="#8b7cff">
                             <circle cx="-46" cy="-34" r="4.5"/>
                             <circle cx="46" cy="-34" r="4.5"/>
@@ -93,10 +145,12 @@ active: index
                         </g>
                         <rect x="-20" y="-15" width="40" height="30" rx="7" fill="#0c1424" stroke="#56a0ff" stroke-width="2"/>
                         <circle cx="0" cy="0" r="3" fill="#35e0d0"/>
-                        <path d="M0 -24 L5 -16 L-5 -16 Z" fill="#35e0d0"/>
+                        <g id="hero-heading">
+                            <path d="M0 -24 L5 -16 L-5 -16 Z" fill="#35e0d0"/>
+                        </g>
                     </g>
                 </svg>
-                <div class="hero-hud">◦ AUTONOMY · CV · GENAI &nbsp;|&nbsp; STATUS: NOMINAL</div>
+                <div class="hero-hud">◦ <span id="hud-alt">ALT 41.2m</span> · <span id="hud-vel">VEL 5.8m/s</span> · <span id="hud-hdg">HDG 214°</span> &nbsp;|&nbsp; <span id="hud-status">STATUS: NOMINAL</span></div>
             </div>
         </div>
     </div>
@@ -392,3 +446,52 @@ active: index
         </div>
     </div>
 </section>
+
+<script>
+(function () {
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var radar = document.getElementById('hero-radar');
+    if (reduced && radar && radar.pauseAnimations) { radar.pauseAnimations(); }
+
+    // Live telemetry ticker
+    var alt = document.getElementById('hud-alt'),
+        vel = document.getElementById('hud-vel'),
+        hdg = document.getElementById('hud-hdg'),
+        st  = document.getElementById('hud-status');
+    if (alt && !reduced) {
+        var t = 0, avoidFor = 0;
+        setInterval(function () {
+            t += 0.8;
+            var a = 42 + 6 * Math.sin(t / 9) + (Math.random() - 0.5) * 0.8;
+            var v = 5.6 + 2.2 * Math.sin(t / 6 + 1) + (Math.random() - 0.5) * 0.4;
+            var h = (214 + 28 * Math.sin(t / 13) + 360) % 360;
+            alt.textContent = 'ALT ' + a.toFixed(1) + 'm';
+            vel.textContent = 'VEL ' + Math.max(0.4, v).toFixed(1) + 'm/s';
+            hdg.textContent = 'HDG ' + ('00' + Math.round(h)).slice(-3) + '°';
+            avoidFor -= 0.8;
+            if (avoidFor <= 0 && Math.random() < 0.07) { avoidFor = 2.4; }
+            if (avoidFor > 0) {
+                st.textContent = 'AVOID: ACTIVE';
+                st.style.color = '#ffb454';
+            } else {
+                st.textContent = 'STATUS: NOMINAL';
+                st.style.color = '';
+            }
+        }, 800);
+    }
+
+    // Heading arrow tracks the cursor (fine pointers only)
+    var visual = document.querySelector('.hero-visual');
+    var arrow = document.getElementById('hero-heading');
+    var hero = document.querySelector('.hero');
+    if (visual && arrow && hero && !reduced &&
+        window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
+        hero.addEventListener('mousemove', function (e) {
+            var r = visual.getBoundingClientRect();
+            var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+            var ang = Math.atan2(e.clientX - cx, -(e.clientY - cy)) * 180 / Math.PI;
+            arrow.setAttribute('transform', 'rotate(' + ang.toFixed(1) + ')');
+        });
+    }
+})();
+</script>

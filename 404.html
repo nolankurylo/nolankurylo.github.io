@@ -3,8 +3,28 @@ permalink: /404.html
 layout: default
 ---
 
-<section class="section" style="padding-top:170px;">
+<section class="section" style="padding-top:150px;">
     <div class="nk-wrap err-page">
+        <svg viewBox="0 0 160 160" width="150" height="150" style="display:block;margin:0 auto 8px;" aria-hidden="true">
+            <g stroke="#56a0ff" stroke-opacity="0.20" fill="none">
+                <circle cx="80" cy="80" r="66"/>
+                <circle cx="80" cy="80" r="44"/>
+                <circle cx="80" cy="80" r="22"/>
+            </g>
+            <g stroke="#ffffff" stroke-opacity="0.07">
+                <line x1="14" y1="80" x2="146" y2="80"/>
+                <line x1="80" y1="14" x2="80" y2="146"/>
+            </g>
+            <g>
+                <line x1="80" y1="80" x2="80" y2="16" stroke="#35e0d0" stroke-opacity="0.5" stroke-width="1.6"/>
+                <animateTransform attributeName="transform" type="rotate" from="0 80 80" to="360 80 80" dur="5s" repeatCount="indefinite"/>
+            </g>
+            <!-- the lost contact: drifts off the scope and fades -->
+            <circle r="3.5" fill="#ffb454">
+                <animateMotion path="M80 80 C 100 66, 122 58, 152 46" dur="4s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.7;1" dur="4s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
         <span class="eyebrow" style="justify-content:center;">Signal lost</span>
         <div class="code">404</div>
         <p>This page is off the flight plan — it doesn't exist or has moved.</p>
