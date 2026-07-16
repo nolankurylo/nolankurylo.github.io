@@ -19,10 +19,10 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Nolan Kurylo
-email: kurylon@telus.net
+email: nolankurylo@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Nolan Kurylo — Senior Machine Learning Engineer in Austin, TX, building AI for drones,
-  aviation and autonomous systems: computer vision, GenAI/LLM tooling, and autonomy.
+  Nolan Kurylo — Senior Machine Learning Engineer in Austin, TX, building intelligent
+  software, robotics and avionics: machine learning, computer vision and autonomous systems.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://nolankurylo.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb

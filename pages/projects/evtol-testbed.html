@@ -74,25 +74,23 @@ permalink: /projects/evtol-testbed/
             full-scale build as the deciding criterion.
         </p>
 
-        <!-- ================= Interactive braking-envelope demo ================= -->
-        <h2 class="h1-title" style="font-size:24px;margin-bottom:10px;">Try the velocity governor</h2>
+        <!-- ================= Autonomous braking-envelope demo ================= -->
+        <h2 class="h1-title" style="font-size:24px;margin-bottom:10px;">The governor in action</h2>
         <p style="color:var(--muted);font-size:16px;line-height:1.8;margin-bottom:20px;max-width:760px;">
-            <strong style="color:var(--text)">Hold the stick</strong> and command full speed at the wall — the
-            governor won't let you hit it. As range closes, <code>v_max&nbsp;=&nbsp;√(2·a·(d−margin))</code> clamps
-            your commanded velocity so the aircraft always has room to stop. This is the same textbook physics Layer 3
-            enforces on the real aircraft.
+            The autopilot below repeatedly flies <strong style="color:var(--text)">full stick at the wall</strong> —
+            and the velocity governor automatically clamps it. As range closes,
+            <code>v_max&nbsp;=&nbsp;√(2·a·(d−margin))</code> shrinks the allowed speed so the aircraft always has room
+            to stop, pinning it at the safety margin no matter what is commanded. Same textbook physics as Layer 3 on
+            the real aircraft.
         </p>
         <div class="gov-demo" id="gov-demo">
-            <canvas id="gov-canvas" aria-label="Velocity governor simulation: hold to command full speed toward a wall; the governor limits speed so the vehicle cannot hit it."></canvas>
+            <canvas id="gov-canvas" aria-label="Autonomous velocity governor simulation: the autopilot commands full speed toward a wall and the governor automatically limits speed so the vehicle cannot hit it."></canvas>
             <div class="gov-readouts">
-                <span>DIST <b id="gov-d">58.0m</b></span>
+                <span>MODE <b id="gov-mode">APPROACH</b></span>
+                <span>DIST <b id="gov-d">56.0m</b></span>
                 <span>V CMD <b id="gov-vc">0.0</b></span>
                 <span>V MAX <b id="gov-vm">—</b></span>
                 <span>V ACTUAL <b id="gov-va">0.0</b></span>
-            </div>
-            <div class="gov-controls">
-                <button type="button" class="btn-nk btn-primary-nk" id="gov-hold"><i class="fas fa-angle-double-right"></i> Hold — full stick</button>
-                <button type="button" class="btn-nk btn-ghost-nk" id="gov-reset"><i class="fas fa-undo"></i> Reset</button>
             </div>
             <div class="gov-log" id="gov-log" aria-live="polite"></div>
         </div>
@@ -104,17 +102,17 @@ permalink: /projects/evtol-testbed/
             var ctx = canvas.getContext('2d');
 
             // world (metres)
-            var WORLD = 60, WALL = 58, MARGIN = 2.5;
-            var A_BRAKE = 4.5, A_MAX = 7, V_CMD_MAX = 12;
-            var x = 2, v = 0, holding = false, lastT = null, logCooldown = 0;
+            var WORLD = 60, WALL = 58, MARGIN = 2.5, START = 2;
+            var A_BRAKE = 4.5, A_MAX = 7, V_CMD_MAX = 12, V_RTB = -7;
+            var x = START, v = 0, lastT = null, logCooldown = 0;
+            var mode = 'approach', modeTimer = 0;
 
-            var elD = document.getElementById('gov-d'),
+            var elMode = document.getElementById('gov-mode'),
+                elD = document.getElementById('gov-d'),
                 elVc = document.getElementById('gov-vc'),
                 elVm = document.getElementById('gov-vm'),
                 elVa = document.getElementById('gov-va'),
-                log = document.getElementById('gov-log'),
-                holdBtn = document.getElementById('gov-hold'),
-                resetBtn = document.getElementById('gov-reset');
+                log = document.getElementById('gov-log');
 
             function resize() {
                 var dpr = window.devicePixelRatio || 1;
@@ -144,8 +142,8 @@ permalink: /projects/evtol-testbed/
                 ctx.moveTo(0, 0); ctx.lineTo(s, s * 0.72);
                 ctx.stroke();
                 ctx.fillStyle = '#8b7cff';
-                [[-s, -s * 0.72], [s, -s * 0.72], [-s, s * 0.72], [s, s * 0.72]].forEach(function (p) {
-                    ctx.beginPath(); ctx.arc(p[0], p[1], s * 0.22, 0, 7); ctx.fill();
+                [[-s, -s * 0.72], [s, -s * 0.72], [-s, s * 0.72], [s, s * 0.72]].forEach(function (p2) {
+                    ctx.beginPath(); ctx.arc(p2[0], p2[1], s * 0.22, 0, 7); ctx.fill();
                 });
                 ctx.fillStyle = '#0c1424'; ctx.strokeStyle = '#56a0ff'; ctx.lineWidth = s * 0.1;
                 ctx.beginPath(); ctx.roundRect(-s * 0.5, -s * 0.36, s, s * 0.72, s * 0.18); ctx.fill(); ctx.stroke();
@@ -154,25 +152,52 @@ permalink: /projects/evtol-testbed/
                 ctx.restore();
             }
 
+            function setMode(m2, label) {
+                mode = m2; modeTimer = 0;
+                elMode.textContent = label;
+                if (m2 === 'approach') addLog('NAV  approach — commanding full stick (' + V_CMD_MAX.toFixed(1) + ' m/s)');
+                if (m2 === 'hold') addLog('HOLD pinned at margin — d=' + MARGIN.toFixed(1) + 'm, impact impossible');
+                if (m2 === 'return') addLog('NAV  returning to start of corridor');
+            }
+
             function step(t) {
                 if (lastT === null) lastT = t;
                 var dt = Math.min((t - lastT) / 1000, 0.05); lastT = t;
+                modeTimer += dt;
 
                 var d = WALL - x;
                 var vMax = Math.sqrt(Math.max(0, 2 * A_BRAKE * (d - MARGIN)));
-                var vCmd = holding ? V_CMD_MAX : 0;
-                var vTarget = Math.min(vCmd, vMax);
-                var limiting = holding && vTarget < vCmd - 0.05;
+
+                // autonomous mission
+                var vCmd = 0;
+                if (mode === 'approach') {
+                    vCmd = V_CMD_MAX;
+                    if (d <= MARGIN + 0.05 && v < 0.05) setMode('hold', 'HOLD');
+                } else if (mode === 'hold') {
+                    vCmd = V_CMD_MAX; // still commanding forward — governor holds it at zero
+                    if (modeTimer > 1.6) setMode('return', 'RETURN');
+                } else if (mode === 'return') {
+                    vCmd = V_RTB;
+                    if (x <= START + 0.05) setMode('pause', 'STANDBY');
+                } else { // pause
+                    vCmd = 0;
+                    if (modeTimer > 1.0) setMode('approach', 'APPROACH');
+                }
+
+                // governor clamps forward (toward-wall) motion only
+                var vTarget = vCmd > 0 ? Math.min(vCmd, vMax) : vCmd;
+                var limiting = vCmd > 0 && vTarget < vCmd - 0.05;
 
                 if (v < vTarget) v = Math.min(v + A_MAX * dt, vTarget);
-                else v = Math.max(v - A_BRAKE * 1.4 * dt, vTarget);
+                else v = Math.max(v - A_MAX * dt, vTarget);
                 x += v * dt;
-                if (x > WALL - MARGIN) { x = WALL - MARGIN; v = 0; }
+                if (x > WALL - MARGIN) { x = WALL - MARGIN; v = Math.min(v, 0); }
+                if (x < START) { x = START; v = Math.max(v, 0); }
 
                 logCooldown -= dt;
-                if (limiting && logCooldown <= 0) {
+                if (limiting && mode === 'approach' && logCooldown <= 0) {
                     addLog('GOV  v_cmd ' + vCmd.toFixed(1) + ' → ' + vTarget.toFixed(1) + ' m/s  @ d=' + d.toFixed(1) + 'm', true);
-                    logCooldown = 0.6;
+                    logCooldown = 0.7;
                 }
 
                 elD.textContent = d.toFixed(1) + 'm';
@@ -195,7 +220,7 @@ permalink: /projects/evtol-testbed/
                 var dx = px(x, w), wallX = px(WALL, w);
 
                 // safety pillow (stopping distance + margin)
-                var stopM = v * v / (2 * A_BRAKE) + MARGIN;
+                var stopM = v > 0 ? v * v / (2 * A_BRAKE) + MARGIN : MARGIN;
                 var stopPx = (stopM / WORLD) * (w - 52);
                 ctx.fillStyle = limiting ? 'rgba(255,180,84,0.10)' : 'rgba(53,224,208,0.08)';
                 ctx.strokeStyle = limiting ? 'rgba(255,180,84,0.55)' : 'rgba(53,224,208,0.45)';
@@ -211,20 +236,22 @@ permalink: /projects/evtol-testbed/
 
                 // commanded (ghost) vs actual velocity vectors
                 var scaleV = (w - 52) / WORLD * 0.55;
-                if (holding && vCmd > v + 0.1) {
+                if (limiting) {
                     var ghostEnd = Math.min(dx + 16 + vCmd * scaleV, wallX - 4);
                     ctx.strokeStyle = 'rgba(255,180,84,0.4)'; ctx.lineWidth = 2; ctx.setLineDash([3, 5]);
                     ctx.beginPath(); ctx.moveTo(dx + 16, cy); ctx.lineTo(ghostEnd, cy); ctx.stroke();
                     ctx.setLineDash([]);
                 }
-                if (v > 0.1) {
+                if (Math.abs(v) > 0.1) {
+                    var dir = v > 0 ? 1 : -1;
+                    var x0 = dx + dir * 16, x1 = dx + dir * 16 + v * scaleV;
                     ctx.strokeStyle = '#35e0d0'; ctx.lineWidth = 2.4;
-                    ctx.beginPath(); ctx.moveTo(dx + 16, cy); ctx.lineTo(dx + 16 + v * scaleV, cy); ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(x0, cy); ctx.lineTo(x1, cy); ctx.stroke();
                     ctx.fillStyle = '#35e0d0';
                     ctx.beginPath();
-                    ctx.moveTo(dx + 16 + v * scaleV + 7, cy);
-                    ctx.lineTo(dx + 16 + v * scaleV - 2, cy - 5);
-                    ctx.lineTo(dx + 16 + v * scaleV - 2, cy + 5);
+                    ctx.moveTo(x1 + dir * 7, cy);
+                    ctx.lineTo(x1 - dir * 2, cy - 5);
+                    ctx.lineTo(x1 - dir * 2, cy + 5);
                     ctx.fill();
                 }
 
@@ -232,30 +259,12 @@ permalink: /projects/evtol-testbed/
                 requestAnimationFrame(step);
             }
 
-            function hold(on) {
-                return function (e) {
-                    if (e.cancelable) e.preventDefault();
-                    holding = on;
-                    holdBtn.classList.toggle('holding', on);
-                };
-            }
-            ['pointerdown'].forEach(function (ev) {
-                holdBtn.addEventListener(ev, hold(true));
-                canvas.addEventListener(ev, hold(true));
-            });
-            ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) {
-                holdBtn.addEventListener(ev, hold(false));
-                canvas.addEventListener(ev, hold(false));
-            });
-            window.addEventListener('blur', function () { holding = false; holdBtn.classList.remove('holding'); });
-            resetBtn.addEventListener('click', function () {
-                x = 2; v = 0; holding = false; holdBtn.classList.remove('holding');
-                log.innerHTML = ''; addLog('SYS  reset — vehicle at start of corridor');
-            });
-
-            addLog('SYS  governor armed — hold full stick and watch v_max clamp');
+            addLog('SYS  governor armed — autonomous demo running');
+            setMode('approach', 'APPROACH');
             resize();
-            requestAnimationFrame(step);
+            var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!reduced) requestAnimationFrame(step);
+            else { resize(); addLog('SYS  animation paused (reduced motion)'); }
         })();
         </script>
 

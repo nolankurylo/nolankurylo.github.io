@@ -279,21 +279,28 @@ nav.navbar .navbar-nav .nav-cta:hover { background: linear-gradient(135deg, #6fb
 .hero-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero-hud {
     position: absolute;
-    left: 18px; bottom: 16px;
+    left: 16px; right: 16px; bottom: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3px 10px;
     font-family: var(--font-mono);
     font-size: 11px;
     color: var(--accent-2);
-    letter-spacing: 0.05em;
-    background: rgba(7,10,18,0.55);
+    letter-spacing: 0.04em;
+    background: rgba(7,10,18,0.6);
     border: 1px solid var(--card-brd);
-    border-radius: 8px;
-    padding: 7px 11px;
+    border-radius: 10px;
+    padding: 8px 10px;
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
-    max-width: calc(100% - 36px);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    text-align: center;
+}
+.hero-hud span { white-space: nowrap; }
+.hero-hud .hud-sep { color: var(--faint); }
+@media only screen and (max-width: 420px) {
+    .hero-hud { font-size: 10px; gap: 2px 8px; padding: 7px 8px; }
 }
 .hero-scroll {
     position: absolute;
@@ -543,8 +550,6 @@ nav.navbar .navbar-nav .nav-cta:hover { background: linear-gradient(135deg, #6fb
     border-radius: var(--radius-sm);
     border: 1px solid var(--card-brd);
     background: rgba(7, 10, 18, 0.55);
-    touch-action: none;
-    cursor: pointer;
 }
 .gov-readouts {
     display: flex;
@@ -557,9 +562,6 @@ nav.navbar .navbar-nav .nav-cta:hover { background: linear-gradient(135deg, #6fb
     margin: 14px 2px 14px;
 }
 .gov-readouts b { color: var(--accent-2); font-weight: 500; margin-left: 6px; }
-.gov-controls { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
-.gov-controls .btn-nk { padding: 11px 20px; font-size: 14px; user-select: none; -webkit-user-select: none; }
-.gov-controls .btn-nk.holding { transform: translateY(-1px) scale(0.98); box-shadow: 0 4px 14px rgba(86,160,255,0.5); }
 .gov-log {
     font-family: var(--font-mono);
     font-size: 12px;
@@ -572,7 +574,6 @@ nav.navbar .navbar-nav .nav-cta:hover { background: linear-gradient(135deg, #6fb
 .gov-log .warn { color: #ffb454; }
 @media only screen and (max-width: 620px) {
     .gov-demo canvas { height: 190px; }
-    .gov-controls .btn-nk { flex: 1; justify-content: center; }
 }
 
 /* ---------- CONTACT / CTA ---------- */
@@ -670,8 +671,21 @@ footer#footer .page-footer { padding: 0 !important; background: transparent !imp
 #content-wrap { padding-bottom: 0 !important; }
 
 /* ---------- scroll reveal ---------- */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
+
+/* ---------- page-load fade (fill backwards only, so .hidden dimming still works) ---------- */
+@keyframes pageIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: none; }
+}
+.side-collapse-container { animation: pageIn 0.45s var(--ease) backwards; }
+
+/* filter results ease in when a category chip is clicked */
+@keyframes catIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+}
 
 /* ---------- legacy remap so project subpages stay readable on dark ---------- */
 .h1-title { color: var(--text) !important; font-family: var(--font-head) !important; font-weight: 600; letter-spacing: -0.01em; }
