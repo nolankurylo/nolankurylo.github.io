@@ -31,8 +31,8 @@ permalink: /projects/drone-fc/
             <p style="color:var(--muted);font-size:17px;line-height:1.8;">
                 The core of the project is a hand-authored ArduPilot <code style="color:var(--accent-2);font-family:var(--font-mono)">hwdef.dat</code> —
                 the board-definition file that tells the firmware exactly what is wired where. Getting sensors, radio
-                and motors talking to the autopilot is the same flight-software stack I work in professionally, so this
-                build doubles as a personal proving ground for the tools behind autonomous flight.
+                and motors talking to the autopilot meant understanding everything from the pin map to the sensor
+                buses, the motor mixer and the tuning that makes it fly.
             </p>
         </div>
 
@@ -58,9 +58,8 @@ permalink: /projects/drone-fc/
         <h2 class="h1-title" style="font-size:22px;margin-bottom:16px;">Why ArduPilot</h2>
         <p style="color:var(--muted);font-size:16px;line-height:1.8;margin-bottom:30px;">
             I chose <strong>ArduPilot over PX4</strong> after a driver- and ecosystem-level trade-off analysis —
-            weighing peripheral support, the maturity of its board-definition workflow, and how cleanly custom logic
-            could sit alongside the certified-style safety core. It's the same firmware family I use on the
-            <a href="/projects/evtol-testbed/">eVTOL testbed I work on professionally</a>, so lessons move directly between the two.
+            weighing peripheral support, the maturity of its board-definition workflow, the depth of its documentation
+            and community, and how cleanly custom logic can sit alongside the safety-critical core.
         </p>
 
         <div class="pcard-stack" style="margin-bottom:40px;">
