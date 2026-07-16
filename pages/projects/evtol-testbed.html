@@ -15,7 +15,7 @@ permalink: /projects/evtol-testbed/
         </div>
 
         <div class="hero-visual" style="aspect-ratio:16/7;margin-bottom:36px;">
-            <img src="/assets/img/evtol-testbed.svg" alt="Autonomous eVTOL flight testbed" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <img src="/assets/img/evtol-testbed.svg" alt="Autonomous eVTOL flight testbed" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" loading="lazy">
         </div>
 
         <div class="about-copy" style="margin-bottom:44px;">
@@ -73,6 +73,191 @@ permalink: /projects/evtol-testbed/
             studies on flight controllers and firmware stacks (ArduPilot vs PX4) with transferability to the
             full-scale build as the deciding criterion.
         </p>
+
+        <!-- ================= Interactive braking-envelope demo ================= -->
+        <h2 class="h1-title" style="font-size:24px;margin-bottom:10px;">Try the velocity governor</h2>
+        <p style="color:var(--muted);font-size:16px;line-height:1.8;margin-bottom:20px;max-width:760px;">
+            <strong style="color:var(--text)">Hold the stick</strong> and command full speed at the wall — the
+            governor won't let you hit it. As range closes, <code>v_max&nbsp;=&nbsp;√(2·a·(d−margin))</code> clamps
+            your commanded velocity so the aircraft always has room to stop. This is the same textbook physics Layer 3
+            enforces on the real aircraft.
+        </p>
+        <div class="gov-demo" id="gov-demo">
+            <canvas id="gov-canvas" aria-label="Velocity governor simulation: hold to command full speed toward a wall; the governor limits speed so the vehicle cannot hit it."></canvas>
+            <div class="gov-readouts">
+                <span>DIST <b id="gov-d">58.0m</b></span>
+                <span>V CMD <b id="gov-vc">0.0</b></span>
+                <span>V MAX <b id="gov-vm">—</b></span>
+                <span>V ACTUAL <b id="gov-va">0.0</b></span>
+            </div>
+            <div class="gov-controls">
+                <button type="button" class="btn-nk btn-primary-nk" id="gov-hold"><i class="fas fa-angle-double-right"></i> Hold — full stick</button>
+                <button type="button" class="btn-nk btn-ghost-nk" id="gov-reset"><i class="fas fa-undo"></i> Reset</button>
+            </div>
+            <div class="gov-log" id="gov-log" aria-live="polite"></div>
+        </div>
+
+        <script>
+        (function () {
+            var canvas = document.getElementById('gov-canvas');
+            if (!canvas || !canvas.getContext) return;
+            var ctx = canvas.getContext('2d');
+
+            // world (metres)
+            var WORLD = 60, WALL = 58, MARGIN = 2.5;
+            var A_BRAKE = 4.5, A_MAX = 7, V_CMD_MAX = 12;
+            var x = 2, v = 0, holding = false, lastT = null, logCooldown = 0;
+
+            var elD = document.getElementById('gov-d'),
+                elVc = document.getElementById('gov-vc'),
+                elVm = document.getElementById('gov-vm'),
+                elVa = document.getElementById('gov-va'),
+                log = document.getElementById('gov-log'),
+                holdBtn = document.getElementById('gov-hold'),
+                resetBtn = document.getElementById('gov-reset');
+
+            function resize() {
+                var dpr = window.devicePixelRatio || 1;
+                var w = canvas.clientWidth, h = canvas.clientHeight;
+                canvas.width = w * dpr; canvas.height = h * dpr;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+            window.addEventListener('resize', resize);
+
+            function addLog(line, warn) {
+                var div = document.createElement('div');
+                div.textContent = line;
+                if (warn) div.className = 'warn';
+                log.prepend(div);
+                while (log.children.length > 4) log.removeChild(log.lastChild);
+            }
+
+            function px(m, w) { var pad = 26; return pad + (m / WORLD) * (w - pad * 2); }
+
+            function drawQuad(cx, cy, s) {
+                ctx.save(); ctx.translate(cx, cy);
+                ctx.strokeStyle = '#7fa9ff'; ctx.lineWidth = s * 0.16; ctx.lineCap = 'round';
+                ctx.beginPath();
+                ctx.moveTo(0, 0); ctx.lineTo(-s, -s * 0.72);
+                ctx.moveTo(0, 0); ctx.lineTo(s, -s * 0.72);
+                ctx.moveTo(0, 0); ctx.lineTo(-s, s * 0.72);
+                ctx.moveTo(0, 0); ctx.lineTo(s, s * 0.72);
+                ctx.stroke();
+                ctx.fillStyle = '#8b7cff';
+                [[-s, -s * 0.72], [s, -s * 0.72], [-s, s * 0.72], [s, s * 0.72]].forEach(function (p) {
+                    ctx.beginPath(); ctx.arc(p[0], p[1], s * 0.22, 0, 7); ctx.fill();
+                });
+                ctx.fillStyle = '#0c1424'; ctx.strokeStyle = '#56a0ff'; ctx.lineWidth = s * 0.1;
+                ctx.beginPath(); ctx.roundRect(-s * 0.5, -s * 0.36, s, s * 0.72, s * 0.18); ctx.fill(); ctx.stroke();
+                ctx.fillStyle = '#35e0d0';
+                ctx.beginPath(); ctx.arc(0, 0, s * 0.12, 0, 7); ctx.fill();
+                ctx.restore();
+            }
+
+            function step(t) {
+                if (lastT === null) lastT = t;
+                var dt = Math.min((t - lastT) / 1000, 0.05); lastT = t;
+
+                var d = WALL - x;
+                var vMax = Math.sqrt(Math.max(0, 2 * A_BRAKE * (d - MARGIN)));
+                var vCmd = holding ? V_CMD_MAX : 0;
+                var vTarget = Math.min(vCmd, vMax);
+                var limiting = holding && vTarget < vCmd - 0.05;
+
+                if (v < vTarget) v = Math.min(v + A_MAX * dt, vTarget);
+                else v = Math.max(v - A_BRAKE * 1.4 * dt, vTarget);
+                x += v * dt;
+                if (x > WALL - MARGIN) { x = WALL - MARGIN; v = 0; }
+
+                logCooldown -= dt;
+                if (limiting && logCooldown <= 0) {
+                    addLog('GOV  v_cmd ' + vCmd.toFixed(1) + ' → ' + vTarget.toFixed(1) + ' m/s  @ d=' + d.toFixed(1) + 'm', true);
+                    logCooldown = 0.6;
+                }
+
+                elD.textContent = d.toFixed(1) + 'm';
+                elVc.textContent = vCmd.toFixed(1);
+                elVm.textContent = vMax > 25 ? '—' : vMax.toFixed(1);
+                elVa.textContent = v.toFixed(1);
+                elVm.style.color = limiting ? '#ffb454' : '';
+
+                // ---- draw ----
+                var w = canvas.clientWidth, h = canvas.clientHeight, cy = h * 0.52;
+                ctx.clearRect(0, 0, w, h);
+
+                ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+                ctx.lineWidth = 1;
+                for (var m = 0; m <= WORLD; m += 5) {
+                    var gx = px(m, w);
+                    ctx.beginPath(); ctx.moveTo(gx, 10); ctx.lineTo(gx, h - 10); ctx.stroke();
+                }
+
+                var dx = px(x, w), wallX = px(WALL, w);
+
+                // safety pillow (stopping distance + margin)
+                var stopM = v * v / (2 * A_BRAKE) + MARGIN;
+                var stopPx = (stopM / WORLD) * (w - 52);
+                ctx.fillStyle = limiting ? 'rgba(255,180,84,0.10)' : 'rgba(53,224,208,0.08)';
+                ctx.strokeStyle = limiting ? 'rgba(255,180,84,0.55)' : 'rgba(53,224,208,0.45)';
+                ctx.setLineDash([4, 6]); ctx.lineWidth = 1.4;
+                ctx.beginPath(); ctx.ellipse(dx, cy, Math.max(stopPx, 18), Math.min(Math.max(stopPx * 0.55, 16), h * 0.42), 0, 0, 7);
+                ctx.fill(); ctx.stroke(); ctx.setLineDash([]);
+
+                // wall
+                ctx.fillStyle = limiting ? 'rgba(255,180,84,0.22)' : 'rgba(139,124,255,0.16)';
+                ctx.strokeStyle = limiting ? '#ffb454' : 'rgba(139,124,255,0.7)';
+                ctx.lineWidth = 1.6;
+                ctx.beginPath(); ctx.roundRect(wallX, 12, 14, h - 24, 4); ctx.fill(); ctx.stroke();
+
+                // commanded (ghost) vs actual velocity vectors
+                var scaleV = (w - 52) / WORLD * 0.55;
+                if (holding && vCmd > v + 0.1) {
+                    var ghostEnd = Math.min(dx + 16 + vCmd * scaleV, wallX - 4);
+                    ctx.strokeStyle = 'rgba(255,180,84,0.4)'; ctx.lineWidth = 2; ctx.setLineDash([3, 5]);
+                    ctx.beginPath(); ctx.moveTo(dx + 16, cy); ctx.lineTo(ghostEnd, cy); ctx.stroke();
+                    ctx.setLineDash([]);
+                }
+                if (v > 0.1) {
+                    ctx.strokeStyle = '#35e0d0'; ctx.lineWidth = 2.4;
+                    ctx.beginPath(); ctx.moveTo(dx + 16, cy); ctx.lineTo(dx + 16 + v * scaleV, cy); ctx.stroke();
+                    ctx.fillStyle = '#35e0d0';
+                    ctx.beginPath();
+                    ctx.moveTo(dx + 16 + v * scaleV + 7, cy);
+                    ctx.lineTo(dx + 16 + v * scaleV - 2, cy - 5);
+                    ctx.lineTo(dx + 16 + v * scaleV - 2, cy + 5);
+                    ctx.fill();
+                }
+
+                drawQuad(dx, cy, 15);
+                requestAnimationFrame(step);
+            }
+
+            function hold(on) {
+                return function (e) {
+                    if (e.cancelable) e.preventDefault();
+                    holding = on;
+                    holdBtn.classList.toggle('holding', on);
+                };
+            }
+            ['pointerdown'].forEach(function (ev) {
+                holdBtn.addEventListener(ev, hold(true));
+                canvas.addEventListener(ev, hold(true));
+            });
+            ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) {
+                holdBtn.addEventListener(ev, hold(false));
+                canvas.addEventListener(ev, hold(false));
+            });
+            window.addEventListener('blur', function () { holding = false; holdBtn.classList.remove('holding'); });
+            resetBtn.addEventListener('click', function () {
+                x = 2; v = 0; holding = false; holdBtn.classList.remove('holding');
+                log.innerHTML = ''; addLog('SYS  reset — vehicle at start of corridor');
+            });
+
+            addLog('SYS  governor armed — hold full stick and watch v_max clamp');
+            resize();
+            requestAnimationFrame(step);
+        })();
+        </script>
 
         <!-- Autonomy demo features -->
         <h2 class="h1-title" style="font-size:24px;margin-bottom:20px;">Autonomy features</h2>

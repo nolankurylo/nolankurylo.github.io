@@ -1,20 +1,27 @@
-#blackboard{
+#blackboard {
     background-color: black;
     width: 350px;
     height: 350px;
-    border-radius: 5px;
+    border-radius: 10px;
     z-index: 2;
-    
-  }
-#backboard{
-  background: url("/assets/img/wood-bg.jpg") no-repeat 0 0 scroll;
-  background-size: 100% 100%;
-  width: 380px;
-  height: 380px;
-  border-radius: 5px;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
+}
+
+#backboard {
+    background:
+        radial-gradient(120% 120% at 30% 0%, rgba(86, 160, 255, 0.14), transparent 55%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.85);
+    width: 380px;
+    height: 380px;
+    border-radius: 16px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#prediction {
+    color: #35e0d0;
+    font-family: "Space Grotesk", sans-serif;
 }

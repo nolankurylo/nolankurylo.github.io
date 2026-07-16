@@ -176,16 +176,7 @@ p {
     }
 }
 
-/* banner image */
-#banner-image {
-    background-image:
-        linear-gradient(rgb(0, 0, 0), rgba(255, 255, 255, 0.185)),
-        url("../img/vic.jpeg");
-    height: 100vh;
-    position: relative;
-    
-
-}
+/* (old banner-image hero removed in 2026 redesign) */
 
 /* Banner image parallax scrolling effect */
 .parrallax {
@@ -612,15 +603,6 @@ footer {
         width: 0;
         border-right: none;
         border-top: none
-    }
-
-    .mobile-image {
-        margin-bottom: 25px;
-        min-width: 100%;
-        height: 200px;
-        background-image: url("/assets/img/3-sisters.jpg");
-        background-size: cover;
-        display: block !important;
     }
 
     .mobile-visible {

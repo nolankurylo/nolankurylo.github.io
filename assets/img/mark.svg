@@ -1,0 +1,36 @@
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mArm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#56a0ff"/>
+      <stop offset="1" stop-color="#8b7cff"/>
+    </linearGradient>
+    <linearGradient id="mRing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#56a0ff"/>
+      <stop offset="0.5" stop-color="#35e0d0"/>
+      <stop offset="1" stop-color="#8b7cff"/>
+    </linearGradient>
+    <radialGradient id="mGlow" cx="0.5" cy="0.4" r="0.75">
+      <stop offset="0" stop-color="#17263f"/>
+      <stop offset="1" stop-color="#0b1120"/>
+    </radialGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#mGlow)"/>
+  <rect x="2" y="2" width="60" height="60" rx="15" stroke="url(#mRing)" stroke-width="2.5"/>
+  <!-- quad glyph -->
+  <g stroke="url(#mArm)" stroke-width="5" stroke-linecap="round">
+    <line x1="32" y1="32" x2="18" y2="18"/>
+    <line x1="32" y1="32" x2="46" y2="18"/>
+    <line x1="32" y1="32" x2="18" y2="46"/>
+    <line x1="32" y1="32" x2="46" y2="46"/>
+  </g>
+  <g fill="#8b7cff">
+    <circle cx="18" cy="18" r="5"/>
+    <circle cx="46" cy="46" r="5"/>
+  </g>
+  <g fill="#56a0ff">
+    <circle cx="46" cy="18" r="5"/>
+    <circle cx="18" cy="46" r="5"/>
+  </g>
+  <circle cx="32" cy="32" r="5.5" fill="#0b1120" stroke="#35e0d0" stroke-width="2.5"/>
+  <circle cx="32" cy="32" r="1.8" fill="#35e0d0"/>
+</svg>
