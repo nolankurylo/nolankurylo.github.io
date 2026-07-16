@@ -31,125 +31,7 @@ active: index
             </div>
 
             <div class="hero-visual" aria-hidden="true">
-                <svg id="hero-radar" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="hArm" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0" stop-color="#56a0ff"/>
-                            <stop offset="1" stop-color="#8b7cff"/>
-                        </linearGradient>
-                        <radialGradient id="hRad" cx="0.5" cy="0.5" r="0.5">
-                            <stop offset="0" stop-color="#56a0ff" stop-opacity="0.20"/>
-                            <stop offset="1" stop-color="#56a0ff" stop-opacity="0"/>
-                        </radialGradient>
-                    </defs>
-
-                    <!-- radar rings -->
-                    <g stroke="#56a0ff" stroke-opacity="0.16" fill="none">
-                        <circle cx="200" cy="200" r="150"/>
-                        <circle cx="200" cy="200" r="108"/>
-                        <circle cx="200" cy="200" r="66"/>
-                    </g>
-                    <circle cx="200" cy="200" r="150" fill="url(#hRad)"/>
-                    <g stroke="#ffffff" stroke-opacity="0.06">
-                        <line x1="50" y1="200" x2="350" y2="200"/>
-                        <line x1="200" y1="50" x2="200" y2="350"/>
-                    </g>
-
-                    <!-- sweeping radar arm -->
-                    <g>
-                        <line x1="200" y1="200" x2="200" y2="52" stroke="#35e0d0" stroke-opacity="0.5" stroke-width="2"/>
-                        <animateTransform attributeName="transform" type="rotate"
-                            from="0 200 200" to="360 200 200" dur="7s" repeatCount="indefinite"/>
-                    </g>
-
-                    <!-- radar contacts: pulse as the sweep passes (7s period, phase-offset) -->
-                    <g>
-                        <circle cx="304" cy="140" r="3" fill="#35e0d0" opacity="0">
-                            <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.18;0.42;1" dur="7s" begin="-5.833s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="304" cy="140" r="3" fill="none" stroke="#35e0d0" stroke-width="1.5" opacity="0">
-                            <animate attributeName="r" values="3;20;20" keyTimes="0;0.18;1" dur="7s" begin="-5.833s" repeatCount="indefinite"/>
-                            <animate attributeName="opacity" values="0.8;0;0" keyTimes="0;0.18;1" dur="7s" begin="-5.833s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="215" cy="284" r="3" fill="#8b7cff" opacity="0">
-                            <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.18;0.42;1" dur="7s" begin="-3.694s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="215" cy="284" r="3" fill="none" stroke="#8b7cff" stroke-width="1.5" opacity="0">
-                            <animate attributeName="r" values="3;20;20" keyTimes="0;0.18;1" dur="7s" begin="-3.694s" repeatCount="indefinite"/>
-                            <animate attributeName="opacity" values="0.8;0;0" keyTimes="0;0.18;1" dur="7s" begin="-3.694s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="67" cy="177" r="3" fill="#56a0ff" opacity="0">
-                            <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.18;0.42;1" dur="7s" begin="-1.556s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="67" cy="177" r="3" fill="none" stroke="#56a0ff" stroke-width="1.5" opacity="0">
-                            <animate attributeName="r" values="3;20;20" keyTimes="0;0.18;1" dur="7s" begin="-1.556s" repeatCount="indefinite"/>
-                            <animate attributeName="opacity" values="0.8;0;0" keyTimes="0;0.18;1" dur="7s" begin="-1.556s" repeatCount="indefinite"/>
-                        </circle>
-                    </g>
-
-                    <!-- dashed flight path + moving marker -->
-                    <path id="hPath" d="M70 300 C 150 300, 150 130, 240 130 S 330 260, 330 120"
-                        fill="none" stroke="#35e0d0" stroke-opacity="0.55" stroke-width="1.6" stroke-dasharray="4 6"/>
-                    <circle r="3.5" fill="#35e0d0">
-                        <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
-                            <mpath href="#hPath"/>
-                        </animateMotion>
-                    </circle>
-
-                    <!-- quadcopter -->
-                    <g transform="translate(200 200)">
-                        <g stroke="url(#hArm)" stroke-width="6" stroke-linecap="round">
-                            <line x1="0" y1="0" x2="-46" y2="-34"/>
-                            <line x1="0" y1="0" x2="46" y2="-34"/>
-                            <line x1="0" y1="0" x2="-46" y2="34"/>
-                            <line x1="0" y1="0" x2="46" y2="34"/>
-                        </g>
-                        <g fill="none" stroke="#56a0ff" stroke-opacity="0.6" stroke-width="2">
-                            <circle cx="-46" cy="-34" r="18"/>
-                            <circle cx="46" cy="-34" r="18"/>
-                            <circle cx="-46" cy="34" r="18"/>
-                            <circle cx="46" cy="34" r="18"/>
-                        </g>
-                        <!-- spinning rotor blades (counter-rotating pairs, like a real quad) -->
-                        <g stroke="#aecbff" stroke-width="2" stroke-linecap="round" opacity="0.85">
-                            <g transform="translate(-46 -34)">
-                                <g>
-                                    <line x1="-13" y1="0" x2="13" y2="0"/><line x1="0" y1="-13" x2="0" y2="13"/>
-                                    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.65s" repeatCount="indefinite"/>
-                                </g>
-                            </g>
-                            <g transform="translate(46 -34)">
-                                <g>
-                                    <line x1="-13" y1="0" x2="13" y2="0"/><line x1="0" y1="-13" x2="0" y2="13"/>
-                                    <animateTransform attributeName="transform" type="rotate" from="45" to="-315" dur="0.6s" repeatCount="indefinite"/>
-                                </g>
-                            </g>
-                            <g transform="translate(-46 34)">
-                                <g>
-                                    <line x1="-13" y1="0" x2="13" y2="0"/><line x1="0" y1="-13" x2="0" y2="13"/>
-                                    <animateTransform attributeName="transform" type="rotate" from="20" to="-340" dur="0.6s" repeatCount="indefinite"/>
-                                </g>
-                            </g>
-                            <g transform="translate(46 34)">
-                                <g>
-                                    <line x1="-13" y1="0" x2="13" y2="0"/><line x1="0" y1="-13" x2="0" y2="13"/>
-                                    <animateTransform attributeName="transform" type="rotate" from="65" to="425" dur="0.65s" repeatCount="indefinite"/>
-                                </g>
-                            </g>
-                        </g>
-                        <g fill="#8b7cff">
-                            <circle cx="-46" cy="-34" r="4.5"/>
-                            <circle cx="46" cy="-34" r="4.5"/>
-                            <circle cx="-46" cy="34" r="4.5"/>
-                            <circle cx="46" cy="34" r="4.5"/>
-                        </g>
-                        <rect x="-20" y="-15" width="40" height="30" rx="7" fill="#0c1424" stroke="#56a0ff" stroke-width="2"/>
-                        <circle cx="0" cy="0" r="3" fill="#35e0d0"/>
-                        <g id="hero-heading">
-                            <path d="M0 -24 L5 -16 L-5 -16 Z" fill="#35e0d0"/>
-                        </g>
-                    </g>
-                </svg>
+                <canvas id="hero-canvas"></canvas>
                 <div class="hero-hud"><span id="hud-alt">ALT 41.2m</span><span class="hud-sep">·</span><span id="hud-vel">VEL 5.8m/s</span><span class="hud-sep">·</span><span id="hud-hdg">HDG 214°</span><span class="hud-sep">|</span><span id="hud-status">STATUS: NOMINAL</span></div>
             </div>
         </div>
@@ -449,49 +331,237 @@ active: index
 
 <script>
 (function () {
+    var canvas = document.getElementById('hero-canvas');
+    if (!canvas || !canvas.getContext) return;
+    var ctx = canvas.getContext('2d');
     var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var radar = document.getElementById('hero-radar');
-    if (reduced && radar && radar.pauseAnimations) { radar.pauseAnimations(); }
 
-    // Live telemetry ticker
-    var alt = document.getElementById('hud-alt'),
-        vel = document.getElementById('hud-vel'),
-        hdg = document.getElementById('hud-hdg'),
-        st  = document.getElementById('hud-status');
-    if (alt && !reduced) {
-        var t = 0, avoidFor = 0;
-        setInterval(function () {
-            t += 0.8;
-            var a = 42 + 6 * Math.sin(t / 9) + (Math.random() - 0.5) * 0.8;
-            var v = 5.6 + 2.2 * Math.sin(t / 6 + 1) + (Math.random() - 0.5) * 0.4;
-            var h = (214 + 28 * Math.sin(t / 13) + 360) % 360;
-            alt.textContent = 'ALT ' + a.toFixed(1) + 'm';
-            vel.textContent = 'VEL ' + Math.max(0.4, v).toFixed(1) + 'm/s';
-            hdg.textContent = 'HDG ' + ('00' + Math.round(h)).slice(-3) + '°';
-            avoidFor -= 0.8;
-            if (avoidFor <= 0 && Math.random() < 0.07) { avoidFor = 2.4; }
-            if (avoidFor > 0) {
-                st.textContent = 'AVOID: ACTIVE';
-                st.style.color = '#ffb454';
-            } else {
-                st.textContent = 'STATUS: NOMINAL';
-                st.style.color = '';
+    // ---- square patrol world (metres) ----
+    var W = 40;
+    var A_BRAKE = 4, A_MAX = 5, V_CMD = 8, MARGIN = 1.0;
+    var obstacles = [], target = null;
+    var px = 8, py = 30, th = 0, v = 0;
+    var lastT = null, pulse = 0, trail = [], hudT = 1, alt0 = 0, captures = 0;
+
+    var elAlt = document.getElementById('hud-alt'),
+        elVel = document.getElementById('hud-vel'),
+        elHdg = document.getElementById('hud-hdg'),
+        elSt = document.getElementById('hud-status');
+
+    function rand(a, b) { return a + Math.random() * (b - a); }
+
+    function genField() {
+        for (var tries = 0; tries < 250; tries++) {
+            var obs = [];
+            for (var i = 0; i < 3; i++) obs.push({ x: rand(9, 31), y: rand(9, 31), r: rand(1.8, 2.8) });
+            var ok = true;
+            for (var a2 = 0; a2 < obs.length && ok; a2++) {
+                if (Math.hypot(obs[a2].x - px, obs[a2].y - py) - obs[a2].r < 5) ok = false;
+                for (var b2 = a2 + 1; b2 < obs.length && ok; b2++) {
+                    if (Math.hypot(obs[a2].x - obs[b2].x, obs[a2].y - obs[b2].y) - obs[a2].r - obs[b2].r < 5) ok = false;
+                }
             }
-        }, 800);
+            if (ok) { obstacles = obs; return; }
+        }
+        obstacles = [{ x: 12, y: 14, r: 2.2 }, { x: 27, y: 11, r: 2.2 }, { x: 22, y: 28, r: 2.4 }];
     }
 
-    // Heading arrow tracks the cursor (fine pointers only)
-    var visual = document.querySelector('.hero-visual');
-    var arrow = document.getElementById('hero-heading');
-    var hero = document.querySelector('.hero');
-    if (visual && arrow && hero && !reduced &&
-        window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
-        hero.addEventListener('mousemove', function (e) {
-            var r = visual.getBoundingClientRect();
-            var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-            var ang = Math.atan2(e.clientX - cx, -(e.clientY - cy)) * 180 / Math.PI;
-            arrow.setAttribute('transform', 'rotate(' + ang.toFixed(1) + ')');
-        });
+    function pickTarget() {
+        for (var tries = 0; tries < 250; tries++) {
+            var t2 = { x: rand(5, 35), y: rand(5, 35) };
+            if (Math.hypot(t2.x - px, t2.y - py) < 16) continue;
+            var ok = true;
+            obstacles.forEach(function (o) { if (Math.hypot(t2.x - o.x, t2.y - o.y) - o.r < 4) ok = false; });
+            if (ok) { target = t2; return; }
+        }
+        target = { x: rand(5, 35), y: rand(5, 35) };
     }
+
+    function resize() {
+        var dpr = window.devicePixelRatio || 1;
+        canvas.width = canvas.clientWidth * dpr;
+        canvas.height = canvas.clientHeight * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener('resize', resize);
+
+    function drawQuad(cx, cy, s2, ang) {
+        ctx.save(); ctx.translate(cx, cy); ctx.rotate(ang);
+        ctx.strokeStyle = '#7fa9ff'; ctx.lineWidth = s2 * 0.16; ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(0, 0); ctx.lineTo(-s2, -s2 * 0.72);
+        ctx.moveTo(0, 0); ctx.lineTo(s2, -s2 * 0.72);
+        ctx.moveTo(0, 0); ctx.lineTo(-s2, s2 * 0.72);
+        ctx.moveTo(0, 0); ctx.lineTo(s2, s2 * 0.72);
+        ctx.stroke();
+        ctx.fillStyle = '#8b7cff';
+        [[-s2, -s2 * 0.72], [s2, -s2 * 0.72], [-s2, s2 * 0.72], [s2, s2 * 0.72]].forEach(function (p2) {
+            ctx.beginPath(); ctx.arc(p2[0], p2[1], s2 * 0.22, 0, 7); ctx.fill();
+        });
+        ctx.fillStyle = '#0c1424'; ctx.strokeStyle = '#56a0ff'; ctx.lineWidth = s2 * 0.1;
+        ctx.beginPath(); ctx.roundRect(-s2 * 0.5, -s2 * 0.36, s2, s2 * 0.72, s2 * 0.18); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#35e0d0';
+        ctx.beginPath(); ctx.arc(0, 0, s2 * 0.12, 0, 7); ctx.fill();
+        ctx.restore();
+    }
+
+    function frame(t) {
+        if (lastT === null) lastT = t;
+        var dt = Math.min((t - lastT) / 1000, 0.05); lastT = t;
+        alt0 += dt;
+
+        // clearances
+        var dObs = 1e9;
+        obstacles.forEach(function (o) {
+            var d2 = Math.hypot(px - o.x, py - o.y) - o.r;
+            if (d2 < dObs) dObs = d2;
+        });
+        var dTgt = Math.hypot(px - target.x, py - target.y);
+
+        // governor
+        var vMaxObs = Math.sqrt(Math.max(0.2, 2 * A_BRAKE * (dObs - MARGIN)));
+        var vMaxEnd = Math.sqrt(Math.max(0.3, 2 * A_BRAKE * (dTgt - 0.3)));
+        var vMax = Math.min(vMaxObs, vMaxEnd);
+        var limiting = dObs < 4 && vMaxObs < V_CMD - 0.05 && vMaxObs <= vMaxEnd + 0.01;
+
+        // guidance: goal attraction + obstacle repulsion + tangential slide
+        var gx = (target.x - px) / (dTgt || 1), gy = (target.y - py) / (dTgt || 1);
+        var sx = gx, sy = gy;
+        obstacles.forEach(function (o) {
+            var vx = px - o.x, vy = py - o.y;
+            var dc = Math.hypot(vx, vy) || 1e-6, ds = dc - o.r;
+            var R = 6;
+            if (ds < R) {
+                var wgt = Math.pow((R - Math.max(ds, 0.1)) / R, 2) * 2.8;
+                var ux = vx / dc, uy = vy / dc;
+                var tx = -uy, ty = ux;
+                if (tx * gx + ty * gy < 0) { tx = uy; ty = -ux; }
+                sx += (ux * 0.8 + tx * 0.65) * wgt;
+                sy += (uy * 0.8 + ty * 0.65) * wgt;
+            }
+        });
+        if (px < 4) sx += (4 - px) / 4 * 1.4;
+        if (px > W - 4) sx -= (px - (W - 4)) / 4 * 1.4;
+        if (py < 4) sy += (4 - py) / 4 * 1.4;
+        if (py > W - 4) sy -= (py - (W - 4)) / 4 * 1.4;
+
+        var desired = Math.atan2(sy, sx);
+        var dth = ((desired - th + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
+        var maxTurn = 2.6 * dt;
+        th += Math.max(-maxTurn, Math.min(maxTurn, dth));
+
+        var vTarget = Math.min(V_CMD, vMax);
+        if (v < vTarget) v = Math.min(v + A_MAX * dt, vTarget);
+        else v = Math.max(v - A_BRAKE * 1.3 * dt, vTarget);
+        px += v * Math.cos(th) * dt;
+        py += v * Math.sin(th) * dt;
+
+        // waypoint captured -> pulse and pick the next
+        if (dTgt < 1.1) {
+            pulse = 1; captures++;
+            try { window.__hero = { captures: captures }; } catch (e) {}
+            pickTarget();
+        }
+        if (pulse > 0) pulse = Math.max(0, pulse - dt * 1.4);
+
+        // HUD: real telemetry from the sim
+        hudT += dt;
+        if (elAlt && hudT > 0.35) {
+            hudT = 0;
+            var hdg = (Math.atan2(Math.cos(th), -Math.sin(th)) * 180 / Math.PI + 360) % 360;
+            elAlt.textContent = 'ALT ' + (42 + 4 * Math.sin(alt0 / 9)).toFixed(1) + 'm';
+            elVel.textContent = 'VEL ' + v.toFixed(1) + 'm/s';
+            elHdg.textContent = 'HDG ' + ('00' + Math.round(hdg)).slice(-3) + '\u00b0';
+            if (limiting) { elSt.textContent = 'AVOID: ACTIVE'; elSt.style.color = '#ffb454'; }
+            else { elSt.textContent = 'STATUS: NOMINAL'; elSt.style.color = ''; }
+        }
+
+        // ---- draw ----
+        var w = canvas.clientWidth, h = canvas.clientHeight;
+        var pad2 = 14;
+        var sc = Math.min((w - pad2 * 2) / W, (h - pad2 * 2) / W);
+        var ox = (w - W * sc) / 2, oy = (h - W * sc) / 2;
+        function X(m) { return ox + m * sc; }
+        function Y(m) { return oy + m * sc; }
+
+        ctx.clearRect(0, 0, w, h);
+
+        // radar-scope backdrop: grid + rings + crosshair
+        ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+        ctx.lineWidth = 1;
+        var gStep = 5 * sc;
+        for (var gx2 = ox % gStep; gx2 < w; gx2 += gStep) {
+            ctx.beginPath(); ctx.moveTo(gx2, 0); ctx.lineTo(gx2, h); ctx.stroke();
+        }
+        for (var gy2 = oy % gStep; gy2 < h; gy2 += gStep) {
+            ctx.beginPath(); ctx.moveTo(0, gy2); ctx.lineTo(w, gy2); ctx.stroke();
+        }
+        ctx.strokeStyle = 'rgba(86,160,255,0.14)';
+        [0.42, 0.30, 0.18].forEach(function (f) {
+            ctx.beginPath(); ctx.arc(w / 2, h / 2, Math.min(w, h) * f, 0, 7); ctx.stroke();
+        });
+        ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+        ctx.beginPath(); ctx.moveTo(w / 2, h * 0.06); ctx.lineTo(w / 2, h * 0.94); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(w * 0.06, h / 2); ctx.lineTo(w * 0.94, h / 2); ctx.stroke();
+
+        // obstacles
+        obstacles.forEach(function (o) {
+            var near = (Math.hypot(px - o.x, py - o.y) - o.r) < 3.5 && limiting;
+            ctx.fillStyle = near ? 'rgba(255,180,84,0.16)' : 'rgba(139,124,255,0.13)';
+            ctx.strokeStyle = near ? '#ffb454' : 'rgba(139,124,255,0.6)';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath(); ctx.arc(X(o.x), Y(o.y), o.r * sc, 0, 7); ctx.fill(); ctx.stroke();
+            ctx.strokeStyle = near ? 'rgba(255,180,84,0.35)' : 'rgba(139,124,255,0.22)';
+            ctx.setLineDash([3, 5]); ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.arc(X(o.x), Y(o.y), (o.r + MARGIN) * sc, 0, 7); ctx.stroke();
+            ctx.setLineDash([]);
+        });
+
+        // waypoint target: teal crosshair diamond + capture pulse
+        var txp = X(target.x), typ = Y(target.y);
+        ctx.strokeStyle = 'rgba(53,224,208,0.85)';
+        ctx.lineWidth = 1.6;
+        ctx.beginPath(); ctx.arc(txp, typ, 5, 0, 7); ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(txp - 10, typ); ctx.lineTo(txp - 4, typ);
+        ctx.moveTo(txp + 4, typ); ctx.lineTo(txp + 10, typ);
+        ctx.moveTo(txp, typ - 10); ctx.lineTo(txp, typ - 4);
+        ctx.moveTo(txp, typ + 4); ctx.lineTo(txp, typ + 10);
+        ctx.stroke();
+        if (pulse > 0) {
+            ctx.strokeStyle = 'rgba(53,224,208,' + (pulse * 0.7) + ')';
+            ctx.beginPath(); ctx.arc(txp, typ, 6 + (1 - pulse) * 26, 0, 7); ctx.stroke();
+        }
+
+        // flight trail
+        trail.push([px, py]);
+        if (trail.length > 80) trail.shift();
+        for (var ti = 1; ti < trail.length; ti++) {
+            ctx.strokeStyle = 'rgba(53,224,208,' + (ti / trail.length * 0.4) + ')';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(X(trail[ti - 1][0]), Y(trail[ti - 1][1]));
+            ctx.lineTo(X(trail[ti][0]), Y(trail[ti][1]));
+            ctx.stroke();
+        }
+
+        // safety pillow
+        var stopM = v * v / (2 * A_BRAKE) + MARGIN;
+        ctx.fillStyle = limiting ? 'rgba(255,180,84,0.09)' : 'rgba(53,224,208,0.06)';
+        ctx.strokeStyle = limiting ? 'rgba(255,180,84,0.5)' : 'rgba(53,224,208,0.35)';
+        ctx.setLineDash([4, 6]); ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.arc(X(px), Y(py), Math.max(stopM * sc, 10), 0, 7);
+        ctx.fill(); ctx.stroke(); ctx.setLineDash([]);
+
+        drawQuad(X(px), Y(py), Math.max(12, sc * 1.5), th);
+
+        if (!reduced) requestAnimationFrame(frame);
+    }
+
+    genField();
+    pickTarget();
+    resize();
+    if (reduced) { frame(0); }
+    else requestAnimationFrame(frame);
 })();
 </script>
